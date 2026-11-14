@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" overflow="visible">
+  <title>生闷气</title>
+  <style>
+
+    .keai-sulky-head, .keai-sulky-eyes, .keai-sulky-gaze {
+      transform-box: view-box;
+      transform-origin: 16px 16px;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .keai-sulky-head, .keai-sulky-eyes, .keai-sulky-gaze { animation: none !important; }
+    }
+
+    .keai-sulky-head { animation: keai-sulky-head 4s cubic-bezier(0.45, 0, 0.2, 1) infinite; }
+    .keai-sulky-eyes { animation: keai-sulky-eyes 4s cubic-bezier(0.45, 0, 0.2, 1) infinite; }
+    .keai-sulky-gaze { animation: keai-sulky-gaze 4s cubic-bezier(0.45, 0, 0.2, 1) infinite; }
+    @keyframes keai-sulky-head {
+      0%, 9% { transform: translate(0px, 0px) rotate(0deg); }
+      15%, 28% { transform: translate(-1.25px, 0.12px) rotate(-3.7deg); }
+      35%, 42% { transform: translate(0px, 0px) rotate(0deg); }
+      48%, 63% { transform: translate(1.3px, 0.1px) rotate(3.5deg); }
+      70%, 76% { transform: translate(0px, 0px) rotate(0deg); }
+      81%, 87% { transform: translate(0.6px, -0.7px) rotate(1.7deg); }
+      93%, 100% { transform: translate(0px, 0px) rotate(0deg); }
+    }
+    @keyframes keai-sulky-eyes {
+      0%, 9% { transform: translate(0px, 0px); }
+      15%, 28% { transform: translate(-0.75px, 0.1px); }
+      35%, 42% { transform: translate(0px, 0px); }
+      48%, 63% { transform: translate(0.8px, 0.1px); }
+      70%, 76% { transform: translate(0px, 0px); }
+      81%, 87% { transform: translate(0.4px, -0.55px); }
+      93%, 100% { transform: translate(0px, 0px); }
+    }
+    @keyframes keai-sulky-gaze {
+      0%, 9% { transform: translate(0px, 0px); }
+      15%, 28% { transform: translate(-1.2px, 0.15px); }
+      35%, 42% { transform: translate(0px, 0px); }
+      48%, 63% { transform: translate(1.25px, 0.12px); }
+      70%, 76% { transform: translate(0px, 0px); }
+      81%, 87% { transform: translate(0.65px, -1.0px); }
+      93%, 100% { transform: translate(0px, 0px); }
+    }
+  </style>
+  <defs>
+    <clipPath id="eyeL"><ellipse cx="11.3" cy="14.85" rx="2.15" ry="2.05"/></clipPath>
+    <clipPath id="eyeR"><ellipse cx="21.4" cy="14.85" rx="2.15" ry="2.05"/></clipPath>
+  </defs>
+  <path d="M16 2.15 C23.5 2.15 29.15 7.5 29.4 14.3 C31.6 16.7 31.85 22.05 28.7 25.2 C25.85 30.45 19.7 31.25 16 31.25 C12.3 31.25 6.15 30.45 3.3 25.2 C0.15 22.05 0.4 16.7 2.6 14.3 C2.85 7.5 8.5 2.15 16 2.15 Z" fill="#6e3e55" opacity="0.26"/>
+  <g class="keai-sulky-head">
+    <path d="M16 3.35 C22.7 3.35 27.7 8.15 27.95 14.35 C29.85 16.55 30.05 21.25 27.35 24.05 C24.85 28.85 19.35 29.65 16 29.65 C12.65 29.65 7.15 28.85 4.65 24.05 C1.95 21.25 2.15 16.55 4.05 14.35 C4.3 8.15 9.3 3.35 16 3.35 Z" fill="#f0cdd8"/>
+    <ellipse cx="12.0" cy="10.7" rx="4.8" ry="3.1" fill="#fff8fb" opacity="0.48"/>
+    <circle cx="10.5" cy="10.0" r="1.1" fill="#fff8fb" opacity="0.80"/>
+    <g class="cheeks">
+      <ellipse cx="8.2" cy="20.2" rx="3.0" ry="2.1" fill="#e889a4" opacity="0.72"/>
+      <ellipse cx="23.8" cy="20.2" rx="3.0" ry="2.1" fill="#e889a4" opacity="0.72"/>
+    </g>
+    <path d="M16 3.35 C22.7 3.35 27.7 8.15 27.95 14.35 C29.85 16.55 30.05 21.25 27.35 24.05 C24.85 28.85 19.35 29.65 16 29.65 C12.65 29.65 7.15 28.85 4.65 24.05 C1.95 21.25 2.15 16.55 4.05 14.35 C4.3 8.15 9.3 3.35 16 3.35 Z" fill="none" stroke="#7a4558" stroke-width="1.2"/>
+    <path d="M8.3 12.2h5.1" stroke="#5a3344" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M18.6 12.2h5.1" stroke="#5a3344" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <g class="keai-sulky-eyes">
+      <ellipse cx="11.3" cy="14.85" rx="2.15" ry="2.05" fill="#5a3344"/>
+      <ellipse cx="21.4" cy="14.85" rx="2.15" ry="2.05" fill="#5a3344"/>
+      <g class="keai-sulky-gaze">
+        <circle clip-path="url(#eyeL)" cx="11.3" cy="14.2" r="0.85" fill="#fff8fb"/>
+        <circle clip-path="url(#eyeR)" cx="21.4" cy="14.2" r="0.85" fill="#fff8fb"/>
+      </g>
+    </g>
+    <path d="M16.5 20.15c0.2 1.9 2.35 1.9 2.55 0" stroke="#5a3344" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

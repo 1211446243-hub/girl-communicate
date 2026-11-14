@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" overflow="visible">
+  <title>开心</title>
+  <style>
+
+    .gaoleng-happy-head, .gaoleng-happy-eyes, .gaoleng-happy-gaze {
+      transform-box: view-box;
+      transform-origin: 16px 16px;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .gaoleng-happy-head, .gaoleng-happy-eyes, .gaoleng-happy-gaze { animation: none !important; }
+    }
+
+    .gaoleng-happy-head { animation: gaoleng-happy-head 6s cubic-bezier(0.45, 0, 0.2, 1) infinite; }
+    .gaoleng-happy-eyes { animation: gaoleng-happy-eyes 6s cubic-bezier(0.45, 0, 0.2, 1) infinite; }
+    @keyframes gaoleng-happy-head {
+      0%, 11% { transform: translate(0px, 0px) rotate(0deg); }
+      17%, 26% { transform: translate(-0.8px, -0.1px) rotate(-2.4deg); }
+      33%, 41% { transform: translate(0px, 0px) rotate(0deg); }
+      46%, 53% { transform: translate(-0.2px, -0.65px) rotate(-1.0deg); }
+      59%, 66% { transform: translate(0px, 0px) rotate(0deg); }
+      72%, 84% { transform: translate(0.95px, 0.1px) rotate(2.6deg); }
+      91%, 100% { transform: translate(0px, 0px) rotate(0deg); }
+    }
+    @keyframes gaoleng-happy-eyes {
+      0%, 11% { transform: translate(0px, 0px); }
+      17%, 26% { transform: translate(-1.65px, -0.15px); }
+      33%, 41% { transform: translate(0px, 0px); }
+      46%, 53% { transform: translate(-0.25px, -1.15px); }
+      59%, 66% { transform: translate(0px, 0px); }
+      72%, 84% { transform: translate(1.75px, 0.1px); }
+      91%, 100% { transform: translate(0px, 0px); }
+    }
+  </style>
+  <circle cx="16" cy="16.7" r="14.15" fill="#3d5266" opacity="0.28"/>
+  <g class="gaoleng-happy-head">
+    <circle cx="16" cy="16" r="12.55" fill="#d0dbe6"/>
+    <ellipse cx="12.3" cy="11.1" rx="4.0" ry="2.5" fill="#eef3f7" opacity="0.30"/>
+    <g class="cheeks">
+      <ellipse cx="9.2" cy="19.4" rx="2.7" ry="1.85" fill="#c4b4bc" opacity="0.08"/>
+      <ellipse cx="22.8" cy="19.4" rx="2.7" ry="1.85" fill="#c4b4bc" opacity="0.08"/>
+    </g>
+    <circle cx="16" cy="16" r="12.55" fill="none" stroke="#3a4e60" stroke-width="1.1"/>
+    <g class="gaoleng-happy-eyes">
+      <path d="M8.6 15.35q2.35-2.55 4.7 0" stroke="#2a3b4b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M18.7 15.35q2.35-2.55 4.7 0" stroke="#2a3b4b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <path d="M13.3 19.7q2.7 2.55 5.4 0" stroke="#2a3b4b" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

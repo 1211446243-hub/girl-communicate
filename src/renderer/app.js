@@ -8,6 +8,7 @@ const state = {
   current: null,      // 当前人设 id
   settings: null,
   streaming: {},      // personaId -> { el, text }
+  ptyping: {},        // v1.7 她主动发的消息正在「输入中」：personaId -> { el, parts, timer }
   bgFront: 'A'
 };
 
@@ -146,7 +147,7 @@ function attachActions(m, content) {
   if (m.querySelector('.msg-actions')) return;
   const bar = document.createElement('div');
   bar.className = 'msg-actions';
-  bar.innerHTML = `<button type="button" data-act="copy">复制</button>${m.classList.contains('ai') ? '<button type="button" data-act="regen">重新生成</button>' : ''}`;
+  bar.innerHTML = `<button type="button" data-act="copy">复制</button>${m.classList.contains('ai') && !m.classList.contains('proactive') ? '<button type="button" data-act="regen">重新生成</button>' : ''}`;
   bar.querySelector('[data-act="copy"]').addEventListener('click', async (e) => {
     e.stopPropagation();
     await zhijian.copyText(m.dataset.raw || '');
@@ -157,7 +158,7 @@ function attachActions(m, content) {
   m.appendChild(bar);
 }
 function markLastAi() {
-  const all = $$('#messages .msg.ai:not(.greeting):not(.err)');
+  const all = $$('#messages .msg.ai:not(.greeting):not(.err):not(.proactive)');
   all.forEach((x) => x.classList.remove('last-ai'));
   const last = all[all.length - 1];
   const lastMsg = $$('#messages .msg:not(.err)').pop();
@@ -178,8 +179,9 @@ async function renderChat() {
   for (const m of history) {
     const day = new Date(m.ts).toLocaleDateString('zh-CN', { month: 'long', day: 'numeric' });
     if (day !== lastDay) { const d = document.createElement('div'); d.className = 'day-sep'; d.textContent = `— ${day} —`; box.appendChild(d); lastDay = day; }
-    box.appendChild(msgEl(m.role, m.content, m.ts));
+    box.appendChild(msgEl(m.role, m.content, m.ts, m.proactive ? 'proactive' : ''));
   }
+  dropProactiveTyping(p.id); // 记录里已经有了，直接显示
   const s = state.streaming[p.id];
   if (s) { box.appendChild(s.el); }
   markLastAi();
@@ -190,13 +192,14 @@ async function renderChat() {
 
 function updateComposer() {
   const busy = !!state.streaming[state.current];
+  const typing = busy || !!state.ptyping[state.current];
   $('#btnSend').classList.toggle('hidden', busy);
   $('#btnStop').classList.toggle('hidden', !busy);
   const st = $('#chatStatus');
   const moodEl = $('#chatMood');
-  const label = busy ? '正在输入…' : '在线';
+  const label = typing ? '正在输入…' : '在线';
   // 保留情绪小字节点
-  st.classList.toggle('typing', busy);
+  st.classList.toggle('typing', typing);
   // first text node
   if (st.childNodes[0] && st.childNodes[0].nodeType === 3) st.childNodes[0].textContent = label;
   else st.insertBefore(document.createTextNode(label), moodEl || null);
@@ -288,6 +291,7 @@ async function sendMessage() {
   if (!ks.hasKey) { $('#keyBanner').classList.remove('hidden'); toast('请先在「设置」里填写 DeepSeek API Key'); return; }
   input.value = ''; autoGrow();
   closeSearch();
+  flushProactiveTyping(id); // 她主动发的那条还在「输入中」：先整条显示出来，再放你的消息
   const box = $('#messages');
   $$('#messages .msg.err').forEach((x) => x.remove());
   const mine = msgEl('user', text, Date.now());
@@ -309,7 +313,8 @@ function startPlaceholder(id) {
   el.className = 'msg ai';
   el.innerHTML = '<div class="bubble"><span class="typing-dots"><i></i><i></i><i></i></span></div>';
   $('#messages').appendChild(el);
-  state.streaming[id] = { el, text: '' };
+  // 像真人一样：至少等 1~2 秒（随机）才出现回复，期间只显示「正在输入…」
+  state.streaming[id] = { el, text: '', started: Date.now(), delay: 1000 + Math.floor(Math.random() * 1000) };
   markLastAi();
   updateComposer(); scrollBottom();
   return el;
@@ -404,7 +409,47 @@ function finishStream(id, content, error, canRetry = true) {
 }
 function cleanSep(text) { return String(text || '').replace(/[｜|]{3}/g, '|||'); }
 
+// ---------- v1.7 她主动发来的消息（追发 / 主动找你）：同样先「正在输入…」再整条出现 ----------
+function dropProactiveTyping(id) {
+  const t = state.ptyping[id];
+  if (!t) return;
+  clearTimeout(t.timer);
+  delete state.ptyping[id];
+}
+function showProactiveNow(id) {
+  const t = state.ptyping[id];
+  if (!t) return;
+  clearTimeout(t.timer);
+  delete state.ptyping[id];
+  const m = msgEl('assistant', t.content, t.ts, 'proactive');
+  if (t.el.isConnected) t.el.replaceWith(m);
+  if (id === state.current) { updateComposer(); markLastAi(); scrollBottom(); }
+}
+const flushProactiveTyping = showProactiveNow;
+function onProactive(ev) {
+  const id = ev.personaId;
+  const p = persona(id);
+  if (!p) return;
+  if (id !== state.current || !$('#view-chat').classList.contains('active')) {
+    toast(`${p.name} 给你发了消息`, 6000, { label: '去看看', fn: () => selectPersona(id) });
+    if (id === state.current) { $('#messages').appendChild(msgEl('assistant', ev.content, ev.ts, 'proactive')); markLastAi(); }
+    return;
+  }
+  if (state.streaming[id]) return; // 你已经在发新消息了，记录里有它，下次进来会显示
+  dropProactiveTyping(id);
+  const el = document.createElement('div');
+  el.className = 'msg ai proactive';
+  el.innerHTML = '<div class="bubble"><span class="typing-dots"><i></i><i></i><i></i></span></div>';
+  $('#messages').appendChild(el);
+  // 和普通回复一样：先「正在输入…」1~2 秒，字多的再多打一会儿
+  const len = String(ev.content || '').replace(/\|\|\|/g, '').length;
+  const delay = 1000 + Math.floor(Math.random() * 1000) + Math.min(1500, len * 40);
+  state.ptyping[id] = { el, content: ev.content, ts: ev.ts, timer: setTimeout(() => showProactiveNow(id), delay) };
+  updateComposer(); markLastAi(); scrollBottom();
+}
+
 zhijian.chat.onEvent((ev) => {
+  if (ev.type === 'proactive') { onProactive(ev); return; }
   if (ev.type === 'memory') {
     if (ev.added > 0 && ev.personaId === state.current && !$('#memoryModal').classList.contains('hidden')) openMemory();
     return;
@@ -413,15 +458,14 @@ zhijian.chat.onEvent((ev) => {
   const s = state.streaming[ev.personaId];
   if (!s) return;
   if (ev.type === 'delta') {
+    // 不再逐字流式显示，先攒着，保持「正在输入」的三个点，整条打完再一起出现
     s.text += ev.delta;
-    const b = s.el.querySelector('.bubble');
-    b.innerHTML = renderText(visibleStreaming(cleanSep(s.text)) || ' ');
-    b.classList.add('caret');
-    if (ev.personaId === state.current) scrollBottom();
   } else if (ev.type === 'done') {
-    const b = s.el.querySelector('.bubble');
-    if (b) b.classList.remove('caret');
-    finishStream(ev.personaId, ev.content);
+    const wait = (s.started || 0) + (s.delay || 0) - Date.now();
+    (wait > 0 ? sleep(wait) : Promise.resolve()).then(() => {
+      if (state.streaming[ev.personaId] !== s) return;
+      finishStream(ev.personaId, ev.content);
+    });
   } else if (ev.type === 'error' || ev.type === 'stopped') {
     const b = s.el.querySelector('.bubble');
     if (b) b.classList.remove('caret');
@@ -442,6 +486,8 @@ async function loadSettingsForm() {
   $('#memoryInput').checked = s.memoryEnabled !== false;
   $('#trayInput').checked = s.closeToTray !== false;
   $('#notifyInput').checked = s.notify !== false;
+  $('#followUpInput').value = ['off', 'rare', 'normal'].includes(s.followUp) ? s.followUp : 'rare';
+  $('#proactiveInput').value = ['off', 'rare', 'normal'].includes(s.proactive) ? s.proactive : 'rare';
   const info = await zhijian.appInfo();
   $('#userDataPath').textContent = info.userData;
   $('#ver').textContent = `v${info.version}`;
@@ -500,6 +546,10 @@ function bindSettings() {
     state.settings = await zhijian.settings.save({ closeToTray: $('#trayInput').checked, notify: $('#notifyInput').checked });
     toast('已保存');
   });
+  $('#btnSaveProactive').addEventListener('click', async () => {
+    state.settings = await zhijian.settings.save({ followUp: $('#followUpInput').value, proactive: $('#proactiveInput').value });
+    toast('已保存');
+  });
   $('#btnReplayGuide').addEventListener('click', () => openOnboard(1));
   $('#btnOpenMemory').addEventListener('click', () => { if (!state.current) return toast('先选一个人设'); openMemory(); });
   $$('[data-href]').forEach((b) => b.addEventListener('click', () => zhijian.openExternal(b.dataset.href)));
@@ -542,6 +592,13 @@ async function init() {
   $('#btnStop').addEventListener('click', () => zhijian.chat.stop(state.current));
   $('#composer').addEventListener('submit', (e) => { e.preventDefault(); sendMessage(); });
   $('#input').addEventListener('input', autoGrow);
+  // 你在打字时，取消她待发的追发（节流，最多 4 秒一次）
+  let lastTypingPing = 0;
+  $('#input').addEventListener('input', () => {
+    if (!state.current || Date.now() - lastTypingPing < 4000) return;
+    lastTypingPing = Date.now();
+    zhijian.chat.typing(state.current);
+  });
   $('#input').addEventListener('keydown', (e) => {
     if (e.key === 'Enter' && !e.shiftKey && !e.isComposing) { e.preventDefault(); sendMessage(); }
   });

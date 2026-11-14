@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" overflow="visible">
+  <title>平静</title>
+  <style>
+
+    .gaoleng-calm-head, .gaoleng-calm-eyes, .gaoleng-calm-gaze {
+      transform-box: view-box;
+      transform-origin: 16px 16px;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .gaoleng-calm-head, .gaoleng-calm-eyes, .gaoleng-calm-gaze { animation: none !important; }
+    }
+
+    .gaoleng-calm-head { animation: gaoleng-calm-head 6s cubic-bezier(0.45, 0, 0.2, 1) infinite; }
+    .gaoleng-calm-eyes { animation: gaoleng-calm-eyes 6s cubic-bezier(0.45, 0, 0.2, 1) infinite; }
+    @keyframes gaoleng-calm-head {
+      0%, 12% { transform: translate(0px, 0px) rotate(0deg); }
+      18%, 28% { transform: translate(-0.85px, 0.15px) rotate(-2.6deg); }
+      35%, 44% { transform: translate(0px, 0px) rotate(0deg); }
+      50%, 62% { transform: translate(0.9px, 0.1px) rotate(2.4deg); }
+      69%, 74% { transform: translate(0px, 0px) rotate(0deg); }
+      79%, 84% { transform: translate(-0.45px, -0.6px) rotate(-1.5deg); }
+      90%, 100% { transform: translate(0px, 0px) rotate(0deg); }
+    }
+    @keyframes gaoleng-calm-eyes {
+      0%, 12% { transform: translate(0px, 0px); }
+      18%, 28% { transform: translate(-1.7px, 0.15px); }
+      35%, 44% { transform: translate(0px, 0px); }
+      50%, 62% { transform: translate(1.75px, 0.1px); }
+      69%, 74% { transform: translate(0px, 0px); }
+      79%, 84% { transform: translate(-0.9px, -1.1px); }
+      90%, 100% { transform: translate(0px, 0px); }
+    }
+  </style>
+  <circle cx="16" cy="16.7" r="14.15" fill="#3d5266" opacity="0.28"/>
+  <g class="gaoleng-calm-head">
+    <circle cx="16" cy="16" r="12.55" fill="#c8d5e0"/>
+    <ellipse cx="12.3" cy="11.1" rx="4.0" ry="2.5" fill="#eef3f7" opacity="0.30"/>
+    <circle cx="16" cy="16" r="12.55" fill="none" stroke="#3a4e60" stroke-width="1.1"/>
+    <g class="gaoleng-calm-eyes">
+      <path d="M8.7 14.7h4.8" stroke="#2a3b4b" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M18.5 14.7h4.8" stroke="#2a3b4b" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <path d="M14.3 20.35h3.4" stroke="#2a3b4b" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

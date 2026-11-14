@@ -144,6 +144,28 @@
           </div>
 
           <div class="panel">
+            <h2>她主动找你</h2>
+            <p class="muted">不只是你说一句她回一句。她发的这些消息也会先显示「正在输入…」，会写进聊天记录；你没回之前，她最多主动发一条，不会连着刷屏。</p>
+            <label class="field"><span>顺着你的话再补一句</span>
+              <select id="followUpInput">
+                <option value="off">关</option>
+                <option value="rare">偶尔（默认）</option>
+                <option value="normal">正常</option>
+              </select>
+              <em>她回完后，如果你一两分钟没说话，有时会顺着你刚聊到的东西再发一条（偶尔约三分之一的时候，正常约一半）。你一开始打字或发消息就取消；每轮最多一次。</em>
+            </label>
+            <label class="field"><span>隔一阵主动找你聊</span>
+              <select id="proactiveInput">
+                <option value="off">关</option>
+                <option value="rare">偶尔（默认）</option>
+                <option value="normal">正常</option>
+              </select>
+              <em>软件开着（包括缩在托盘里）时，你很久没聊天，最近聊过的那一位会主动找你，可能是早安、饭点问候，或问问她记得的事。只在 8:30～23:30；偶尔：空闲 4～8 小时后、每人每天最多 2 条，只有最近聊过的 1 位；正常：空闲 2.5～5 小时后、每天最多 3 条、最近聊过的 2 位。窗口不在前台时用系统通知提醒。</em>
+            </label>
+            <div class="row gap"><button class="primary" id="btnSaveProactive">保存</button></div>
+          </div>
+
+          <div class="panel">
             <h2>窗口与通知</h2>
             <label class="check"><input type="checkbox" id="trayInput" /> <span>关闭窗口时最小化到托盘<em>点右上角关闭后，之间会留在任务栏右下角的托盘里；右键托盘图标可以彻底退出。</em></span></label>
             <label class="check"><input type="checkbox" id="notifyInput" /> <span>她回复时发系统通知<em>只在窗口不在前台时提醒。</em></span></label>

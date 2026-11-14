@@ -1,7 +1,7 @@
 {
   "name": "zhijian",
   "productName": "之间",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "description": "之间 —— 夜间柔光风的 AI 陪伴聊天桌面软件（DeepSeek）",
   "author": "刘博宇SolarSystem",
   "license": "UNLICENSED",
@@ -16,7 +16,8 @@
     "test:unit": "node prompt-tests/unit/run.js",
     "test:round9": "node prompt-tests/run-round9.js",
     "test:catchphrase": "node prompt-tests/run-catchphrase.js",
-    "test:round10": "node prompt-tests/run-round10.js"
+    "test:round10": "node prompt-tests/run-round10.js",
+    "test:round11": "node prompt-tests/run-round11.js"
   },
   "build": {
     "appId": "com.solarsystem.zhijian",
