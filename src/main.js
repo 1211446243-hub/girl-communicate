@@ -11,6 +11,7 @@ const mood = require('./mood');
 const memory = require('./memory');
 const { safeFileName } = require('./chatfile');
 const { streamChat, complete } = require('./deepseek');
+const proactive = require('./proactive');
 
 const BUILTIN_PERSONAS = path.join(__dirname, '..', 'personas');
 const ICON = path.join(__dirname, '..', 'assets', 'icon.png');
@@ -26,6 +27,8 @@ let quitting = false;
 let trayTipShown = false;
 const active = new Map();    // personaId -> AbortController
 const extracting = new Set(); // 正在提炼记忆的人设
+const followTimers = proactive.createTimers(); // personaId -> 待发的「话题延伸追发」
+const pending = new Map();      // personaId -> 正在生成的主动消息（AbortController）
 
 // 只允许一个实例：再次双击 exe 时把已有窗口叫出来
 if (!process.env.ZHIJIAN_SHOTS && !app.requestSingleInstanceLock()) app.quit();
@@ -150,6 +153,7 @@ ipcMain.handle('chat:stop', (_e, id) => { active.get(id)?.abort(); return true; 
 // ---- 清空（先自动备份）/ 撤销 / 从备份恢复 / 导入 ----
 // opts.clearMemory：一并清空该人设的「她记得的事」（记忆也写进这份备份，撤销时一起恢复）
 ipcMain.handle('chat:clear', (_e, id, opts = {}) => {
+  cancelProactive(id);
   if (active.has(id)) return { ok: false, message: '她还在回复，稍等一下' };
   const clearMemory = !!(opts && opts.clearMemory);
   const mem = memory.load(userData(), id);
@@ -159,6 +163,7 @@ ipcMain.handle('chat:clear', (_e, id, opts = {}) => {
   return { ok: true, backup: file ? path.basename(file) : null, clearedMemory: clearMemory };
 });
 function restoreFrom(id, file, { withMood = false } = {}) {
+  cancelProactive(id);
   let raw;
   try { raw = fs.readFileSync(file, 'utf8'); } catch { return { ok: false, message: '读取文件失败' }; }
   const r = store.parseChatFile(raw);
@@ -261,6 +266,7 @@ async function generate({ id, p, history, hint, moodView, crisis, regen = false 
     history.push({ role: 'assistant', content: out, ts: Date.now() });
     store.saveHistory(id, history);
     send({ type: 'done', personaId: id, reqId, content: out, mood: moodView });
+    scheduleFollowUp(id);
     if (settings.notify && win && !win.isDestroyed() && (!win.isVisible() || !win.isFocused())) {
       const first = String(out).split(/\s*\|\|\|\s*/)[0].replace(/\s+/g, ' ');
       notify(p.name, crisis ? `${p.name} 回复了你` : (first.length > 60 ? first.slice(0, 59) + '…' : first));
@@ -279,6 +285,7 @@ async function generate({ id, p, history, hint, moodView, crisis, regen = false 
 }
 
 ipcMain.handle('chat:send', async (_e, id, text) => {
+  cancelProactive(id); // 用户一说话，待发的追发 / 主动消息全部作废
   const p = findPersona(id);
   text = String(text || '').trim();
   // 以下几种失败都发生在请求开始之前：原文没有存进记录，界面会把它放回输入框
@@ -290,7 +297,9 @@ ipcMain.handle('chat:send', async (_e, id, text) => {
   const now = new Date();
   const prevMood = store.getMood(id);
   const lastChatAt = (prevMood && prevMood.lastChatAt) || (history.length ? history[history.length - 1].ts : null);
+  const returning = proactive.unansweredProactive(history) > 0; // 她主动发过、你隔了一阵才回
   const updated = mood.update(prevMood, { persona: p, userText: text, now, lastChatAt });
+  if (returning && !updated.crisis) updated.hint += `\n${proactive.RETURN_NOTE}`;
   updated.state.lastHint = updated.hint; // 「重试 / 重新生成」沿用这一轮的情绪，不重复触发
   updated.state.lastCrisis = !!updated.crisis;
   store.saveMood(id, updated.state);
@@ -303,6 +312,7 @@ ipcMain.handle('chat:send', async (_e, id, text) => {
 
 // 重试（上一条失败）/ 重新生成（她的最后一条）：去掉末尾她的回复，用同一句用户消息和同一轮情绪再生成
 ipcMain.handle('chat:regenerate', async (_e, id) => {
+  cancelProactive(id);
   const p = findPersona(id);
   if (!p) return { ok: false, early: true, message: '参数错误' };
   if (active.has(id)) return { ok: false, early: true, message: '上一条还在回复中' };
@@ -337,12 +347,84 @@ ipcMain.handle('chat:export', async (_e, id, format) => {
   return { ok: true, message: `已导出到 ${filePath}` };
 });
 
+// ---- v1.7 她主动找你：话题延伸追发 + 不定时主动消息（逻辑在 proactive.js） ----
+function cancelProactive(id) {
+  followTimers.cancel(id);
+  const c = pending.get(id);
+  if (c) { c.abort(); pending.delete(id); }
+}
+ipcMain.on('chat:typing', (_e, id) => cancelProactive(String(id || '')));
+
+function scheduleFollowUp(id) {
+  cancelProactive(id);
+  const plan = proactive.planFollowUp({ settings: store.getSettings(), history: store.getHistory(id), moodState: store.getMood(id) });
+  if (!plan) return null;
+  const delay = process.env.ZHIJIAN_FOLLOW_MS ? Number(process.env.ZHIJIAN_FOLLOW_MS) : plan.delayMs; // 仅测试用
+  followTimers.schedule(id, delay, () => sendProactive(id, { kind: 'followup', topics: plan.topics }));
+  return plan;
+}
+
+// 生成并发出一条主动消息；kind: 'followup'（追发）| 'proactive'（主动找你）| 'care'（危机后温和关心）
+async function sendProactive(id, { kind, topics = [], plan = null } = {}) {
+  const p = findPersona(id);
+  const key = store.getApiKey();
+  if (!p || !key || active.has(id) || pending.has(id)) return null;
+  const settings = store.getSettings();
+  const history = store.getHistory(id);
+  if (!history.length) return null;
+  const lastTs = history[history.length - 1].ts;
+  const now = new Date();
+  const st = store.getMood(id);
+  const care = kind === 'care';
+  const memories = settings.memoryEnabled && !care ? memory.forPrompt(memory.load(userData(), id).items, now) : [];
+  const messages = proactive.buildRequest({ persona: p, history, settings, kind, topics, plan, moodState: st, memories, now });
+  const ctrl = new AbortController();
+  pending.set(id, ctrl);
+  const timer = setTimeout(() => ctrl.abort(), 45000);
+  try {
+    const out = proactive.acceptReply(cleanReply(p, await complete({ apiKey: key, baseUrl: settings.baseUrl, model: settings.model, temperature: settings.temperature, thinking: false, messages, signal: ctrl.signal })));
+    if (!out || ctrl.signal.aborted) return null;
+    const cur = store.getHistory(id);
+    if (!cur.length || cur[cur.length - 1].ts !== lastTs || active.has(id)) return null; // 期间你说话了：作废
+    const msg = { role: 'assistant', content: out, ts: Date.now(), proactive: true, kind };
+    cur.push(msg);
+    store.saveHistory(id, cur);
+    if (kind !== 'followup') store.saveProactiveState(proactive.recordSent(store.getProactiveState(), id, new Date(msg.ts), kind));
+    send({ type: 'proactive', personaId: id, content: out, ts: msg.ts, kind, mood: mood.publicView(st) });
+    if (settings.notify && win && !win.isDestroyed() && (!win.isVisible() || !win.isFocused())) {
+      const first = String(out).split(/\s*\|\|\|\s*/)[0].replace(/\s+/g, ' ');
+      notify(p.name, care ? `${p.name} 给你发了消息` : (first.length > 60 ? first.slice(0, 59) + '…' : first));
+    }
+    return msg;
+  } catch { return null; /* 主动消息失败就算了，不打扰 */ } finally {
+    clearTimeout(timer);
+    if (pending.get(id) === ctrl) pending.delete(id);
+  }
+}
+
+// 每分钟看一次：最近聊过的人设里，有没有该主动找你的
+function proactiveTick(now = new Date()) {
+  const settings = store.getSettings();
+  if (proactive.mode(settings.proactive) === 'off' || !store.getApiKey() || !proactive.inWindow(now)) return null;
+  if (active.size || pending.size) return null;
+  const histories = {};
+  for (const p of personas) histories[p.id] = store.getHistory(p.id);
+  const pstate = store.getProactiveState();
+  for (const p of personas) {
+    const plan = proactive.planProactive({ settings, id: p.id, history: histories[p.id], moodState: store.getMood(p.id), pstate, histories, now });
+    if (plan) { sendProactive(p.id, { kind: plan.kind === 'care' ? 'care' : 'proactive', plan }); return p.id; }
+  }
+  return null;
+}
+if (process.env.ZHIJIAN_E2E === '1') global.__zhijianTest = { sendProactive, scheduleFollowUp, proactiveTick, followTimers, pending };
+
 app.whenReady().then(() => {
   Menu.setApplicationMenu(null);
   if (process.platform === 'win32') app.setAppUserModelId('com.solarsystem.zhijian'); // 系统通知需要
   reloadPersonas();
   createTray();
   createWindow();
+  setTimeout(() => { proactiveTick(); setInterval(() => proactiveTick(), 60000); }, 90000);
 });
 app.on('before-quit', () => { quitting = true; });
 app.on('window-all-closed', () => app.quit());

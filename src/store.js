@@ -18,6 +18,8 @@ const DEFAULT_SETTINGS = {
   closeToTray: true,    // 关闭窗口时最小化到托盘
   notify: true,         // 窗口不在前台时，回复完成发系统通知
   memoryEnabled: true,  // 「她记得的事」
+  followUp: 'rare',     // v1.7 话题延伸追发：off / rare（偶尔）/ normal（正常）
+  proactive: 'rare',    // v1.7 不定时主动找你：off / rare / normal
   ackNotices: []        // 已确认过首次说明的人设 id
 };
 
@@ -57,6 +59,7 @@ function saveSettings(patch) {
   next.nickname = String(next.nickname || '').slice(0, 20);
   next.thinking = !!next.thinking;
   for (const k of ['onboarded', 'closeToTray', 'notify', 'memoryEnabled']) next[k] = !!next[k];
+  for (const k of ['followUp', 'proactive']) if (!['off', 'rare', 'normal'].includes(next[k])) next[k] = DEFAULT_SETTINGS[k];
   next.ackNotices = Array.isArray(next.ackNotices) ? [...new Set(next.ackNotices.map((x) => String(x).replace(/[^a-z0-9_-]/gi, '')).filter(Boolean))].slice(0, 50) : [];
   const allowedDisplay = new Set(['icon', 'text', 'both', 'off']);
   if (!allowedDisplay.has(next.emotionDisplay)) {
@@ -156,6 +159,11 @@ function listBackups(id) {
     .sort((a, b) => b.name.localeCompare(a.name));
 }
 
+// ---- v1.7 主动消息计数（每个人设每天几条、最近一次时间） ----
+const proactiveFile = () => path.join(dir(), 'proactive.json');
+function getProactiveState() { return readJson(proactiveFile(), { lastAny: 0, personas: {} }); }
+function saveProactiveState(s) { writeJson(proactiveFile(), s); }
+
 const { parseChatFile } = require('./chatfile');
 
-module.exports = { backupChat, listBackups, parseChatFile, backupDir, getSettings, saveSettings, setApiKey, getApiKey, clearApiKey, keyStatus, getHistory, saveHistory, clearHistory, getMood, saveMood, clearMood };
+module.exports = { backupChat, listBackups, parseChatFile, backupDir, getSettings, saveSettings, setApiKey, getApiKey, clearApiKey, keyStatus, getHistory, saveHistory, clearHistory, getMood, saveMood, clearMood, getProactiveState, saveProactiveState };

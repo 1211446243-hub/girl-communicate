@@ -1,0 +1,740 @@
+<!doctype html>
+<html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<title>张望小样</title>
+<style>
+  html,body { margin:0; background:#0a0e14; color:#dfe6ec;
+    font-family:"Noto Sans CJK SC","Noto Sans SC",sans-serif; }
+  body { padding:32px 36px 28px; }
+  h1 { font-family:"Noto Serif CJK SC","Noto Serif SC",serif; font-weight:500;
+    font-size:32px; letter-spacing:.14em; text-align:center; margin:0 0 8px; }
+  .sub { text-align:center; color:#8a9aab; font-size:14px; letter-spacing:.08em; margin-bottom:28px; }
+  .row { display:flex; align-items:center; margin-bottom:22px; justify-content:center; }
+  .who { width:100px; flex:none; }
+  .nm { font-family:"Noto Serif CJK SC","Noto Serif SC",serif; font-size:20px; letter-spacing:.12em; }
+  .tp { font-size:12px; color:#8a9aab; letter-spacing:.16em; margin-top:4px; }
+  .cols { display:flex; gap:28px; }
+  .cell { text-align:center; width:168px; }
+  .icon { width:148px; height:148px; margin:0 auto; border-radius:50%;
+    display:grid; place-items:center; }
+  .icon svg { display:block; }
+  .cap { font-size:14px; margin-top:8px; letter-spacing:.1em; }
+  hr { border:0; border-top:1px solid #243040; margin:8px 40px 18px; }
+  .tiny .cell { width:100px; }
+  .tiny .icon { width:56px; height:56px; }
+  .tiny .cap { font-size:12px; }
+  .sec { text-align:center; color:#8a9aab; font-size:13px; letter-spacing:.1em; margin:0 0 16px; }
+  footer { text-align:center; color:#5b6b7a; font-size:12px; margin-top:8px; letter-spacing:.1em; }
+  html.paused [class$="-head"], html.paused [class$="-eyes"], html.paused [class$="-gaze"] {
+    animation-play-state: paused !important;
+  }
+</style>
+</head><body>
+  <h1>张望小样</h1>
+  <div class="sub">眼睛带着脸轻轻往四周看，再回到原位　·　没有跳、晃或冒气　·　仅供预览</div>
+  <div class="row"><div class="who"><div class="nm" style="color:#a7bccf">沈清</div><div class="tp">高冷</div></div><div class="cols"><div class="cell"><div class="icon" style="background:#18202b"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="120" height="120" fill="none" overflow="visible">
+  <title>平静</title>
+  <style>
+
+    .gaoleng-calm-head, .gaoleng-calm-eyes, .gaoleng-calm-gaze {
+      transform-box: view-box;
+      transform-origin: 16px 16px;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .gaoleng-calm-head, .gaoleng-calm-eyes, .gaoleng-calm-gaze { animation: none !important; }
+    }
+
+    .gaoleng-calm-head { animation: gaoleng-calm-head 6s cubic-bezier(0.45, 0, 0.2, 1) infinite; }
+    .gaoleng-calm-eyes { animation: gaoleng-calm-eyes 6s cubic-bezier(0.45, 0, 0.2, 1) infinite; }
+    @keyframes gaoleng-calm-head {
+      0%, 12% { transform: translate(0px, 0px) rotate(0deg); }
+      18%, 28% { transform: translate(-0.85px, 0.15px) rotate(-2.6deg); }
+      35%, 44% { transform: translate(0px, 0px) rotate(0deg); }
+      50%, 62% { transform: translate(0.9px, 0.1px) rotate(2.4deg); }
+      69%, 74% { transform: translate(0px, 0px) rotate(0deg); }
+      79%, 84% { transform: translate(-0.45px, -0.6px) rotate(-1.5deg); }
+      90%, 100% { transform: translate(0px, 0px) rotate(0deg); }
+    }
+    @keyframes gaoleng-calm-eyes {
+      0%, 12% { transform: translate(0px, 0px); }
+      18%, 28% { transform: translate(-1.7px, 0.15px); }
+      35%, 44% { transform: translate(0px, 0px); }
+      50%, 62% { transform: translate(1.75px, 0.1px); }
+      69%, 74% { transform: translate(0px, 0px); }
+      79%, 84% { transform: translate(-0.9px, -1.1px); }
+      90%, 100% { transform: translate(0px, 0px); }
+    }
+  </style>
+  <circle cx="16" cy="16.7" r="14.15" fill="#3d5266" opacity="0.28"/>
+  <g class="gaoleng-calm-head">
+    <circle cx="16" cy="16" r="12.55" fill="#c8d5e0"/>
+    <ellipse cx="12.3" cy="11.1" rx="4.0" ry="2.5" fill="#eef3f7" opacity="0.30"/>
+    <circle cx="16" cy="16" r="12.55" fill="none" stroke="#3a4e60" stroke-width="1.1"/>
+    <g class="gaoleng-calm-eyes">
+      <path d="M8.7 14.7h4.8" stroke="#2a3b4b" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M18.5 14.7h4.8" stroke="#2a3b4b" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <path d="M14.3 20.35h3.4" stroke="#2a3b4b" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg></div><div class="cap" style="color:#a7bccf">平静</div></div><div class="cell"><div class="icon" style="background:#18202b"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="120" height="120" fill="none" overflow="visible">
+  <title>开心</title>
+  <style>
+
+    .gaoleng-happy-head, .gaoleng-happy-eyes, .gaoleng-happy-gaze {
+      transform-box: view-box;
+      transform-origin: 16px 16px;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .gaoleng-happy-head, .gaoleng-happy-eyes, .gaoleng-happy-gaze { animation: none !important; }
+    }
+
+    .gaoleng-happy-head { animation: gaoleng-happy-head 6s cubic-bezier(0.45, 0, 0.2, 1) infinite; }
+    .gaoleng-happy-eyes { animation: gaoleng-happy-eyes 6s cubic-bezier(0.45, 0, 0.2, 1) infinite; }
+    @keyframes gaoleng-happy-head {
+      0%, 11% { transform: translate(0px, 0px) rotate(0deg); }
+      17%, 26% { transform: translate(-0.8px, -0.1px) rotate(-2.4deg); }
+      33%, 41% { transform: translate(0px, 0px) rotate(0deg); }
+      46%, 53% { transform: translate(-0.2px, -0.65px) rotate(-1.0deg); }
+      59%, 66% { transform: translate(0px, 0px) rotate(0deg); }
+      72%, 84% { transform: translate(0.95px, 0.1px) rotate(2.6deg); }
+      91%, 100% { transform: translate(0px, 0px) rotate(0deg); }
+    }
+    @keyframes gaoleng-happy-eyes {
+      0%, 11% { transform: translate(0px, 0px); }
+      17%, 26% { transform: translate(-1.65px, -0.15px); }
+      33%, 41% { transform: translate(0px, 0px); }
+      46%, 53% { transform: translate(-0.25px, -1.15px); }
+      59%, 66% { transform: translate(0px, 0px); }
+      72%, 84% { transform: translate(1.75px, 0.1px); }
+      91%, 100% { transform: translate(0px, 0px); }
+    }
+  </style>
+  <circle cx="16" cy="16.7" r="14.15" fill="#3d5266" opacity="0.28"/>
+  <g class="gaoleng-happy-head">
+    <circle cx="16" cy="16" r="12.55" fill="#d0dbe6"/>
+    <ellipse cx="12.3" cy="11.1" rx="4.0" ry="2.5" fill="#eef3f7" opacity="0.30"/>
+    <g class="cheeks">
+      <ellipse cx="9.2" cy="19.4" rx="2.7" ry="1.85" fill="#c4b4bc" opacity="0.08"/>
+      <ellipse cx="22.8" cy="19.4" rx="2.7" ry="1.85" fill="#c4b4bc" opacity="0.08"/>
+    </g>
+    <circle cx="16" cy="16" r="12.55" fill="none" stroke="#3a4e60" stroke-width="1.1"/>
+    <g class="gaoleng-happy-eyes">
+      <path d="M8.6 15.35q2.35-2.55 4.7 0" stroke="#2a3b4b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M18.7 15.35q2.35-2.55 4.7 0" stroke="#2a3b4b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <path d="M13.3 19.7q2.7 2.55 5.4 0" stroke="#2a3b4b" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg></div><div class="cap" style="color:#a7bccf">开心</div></div><div class="cell"><div class="icon" style="background:#18202b"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="120" height="120" fill="none" overflow="visible">
+  <title>生闷气</title>
+  <style>
+
+    .gaoleng-sulky-head, .gaoleng-sulky-eyes, .gaoleng-sulky-gaze {
+      transform-box: view-box;
+      transform-origin: 16px 16px;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .gaoleng-sulky-head, .gaoleng-sulky-eyes, .gaoleng-sulky-gaze { animation: none !important; }
+    }
+
+    .gaoleng-sulky-head { animation: gaoleng-sulky-head 6s cubic-bezier(0.45, 0, 0.2, 1) infinite; }
+    .gaoleng-sulky-eyes, .gaoleng-sulky-gaze { animation: gaoleng-sulky-eyes 6s cubic-bezier(0.45, 0, 0.2, 1) infinite; }
+    @keyframes gaoleng-sulky-head {
+      0%, 10% { transform: translate(0px, 0px) rotate(0deg); }
+      16%, 28% { transform: translate(0.85px, 0.12px) rotate(2.5deg); }
+      35%, 43% { transform: translate(0px, 0px) rotate(0deg); }
+      49%, 62% { transform: translate(-0.95px, 0.08px) rotate(-2.7deg); }
+      69%, 76% { transform: translate(0px, 0px) rotate(0deg); }
+      81%, 86% { transform: translate(0.35px, 0.6px) rotate(1.2deg); }
+      92%, 100% { transform: translate(0px, 0px) rotate(0deg); }
+    }
+    @keyframes gaoleng-sulky-eyes {
+      0%, 10% { transform: translate(0px, 0px); }
+      16%, 28% { transform: translate(1.25px, 0.12px); }
+      35%, 43% { transform: translate(0px, 0px); }
+      49%, 62% { transform: translate(-1.3px, 0.1px); }
+      69%, 76% { transform: translate(0px, 0px); }
+      81%, 86% { transform: translate(0.5px, 0.85px); }
+      92%, 100% { transform: translate(0px, 0px); }
+    }
+  </style>
+  <path d="M16 2.15 C23.5 2.15 29.15 7.5 29.4 14.3 C31.6 16.7 31.85 22.05 28.7 25.2 C25.85 30.45 19.7 31.25 16 31.25 C12.3 31.25 6.15 30.45 3.3 25.2 C0.15 22.05 0.4 16.7 2.6 14.3 C2.85 7.5 8.5 2.15 16 2.15 Z" fill="#3d5266" opacity="0.26"/>
+  <g class="gaoleng-sulky-head">
+    <path d="M16 3.35 C22.7 3.35 27.7 8.15 27.95 14.35 C29.85 16.55 30.05 21.25 27.35 24.05 C24.85 28.85 19.35 29.65 16 29.65 C12.65 29.65 7.15 28.85 4.65 24.05 C1.95 21.25 2.15 16.55 4.05 14.35 C4.3 8.15 9.3 3.35 16 3.35 Z" fill="#c5ced8"/>
+    <ellipse cx="12.2" cy="11.0" rx="3.8" ry="2.3" fill="#eef3f7" opacity="0.30"/>
+    <g class="cheeks">
+      <ellipse cx="8.2" cy="20.2" rx="3.0" ry="2.1" fill="#c4b4bc" opacity="0.45"/>
+      <ellipse cx="23.8" cy="20.2" rx="3.0" ry="2.1" fill="#c4b4bc" opacity="0.45"/>
+    </g>
+    <path d="M16 3.35 C22.7 3.35 27.7 8.15 27.95 14.35 C29.85 16.55 30.05 21.25 27.35 24.05 C24.85 28.85 19.35 29.65 16 29.65 C12.65 29.65 7.15 28.85 4.65 24.05 C1.95 21.25 2.15 16.55 4.05 14.35 C4.3 8.15 9.3 3.35 16 3.35 Z" fill="none" stroke="#3a4e60" stroke-width="1.1"/>
+    <path d="M8.6 12.55h5.0" stroke="#2a3b4b" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M18.4 12.55h5.0" stroke="#2a3b4b" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+    <g class="gaoleng-sulky-eyes">
+      <path d="M8.9 14.85h4.5" stroke="#2a3b4b" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M18.6 14.85h4.5" stroke="#2a3b4b" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+      <g class="gaoleng-sulky-gaze">
+        <circle cx="11.15" cy="14.85" r="0.95" fill="#2a3b4b"/>
+        <circle cx="20.85" cy="14.85" r="0.95" fill="#2a3b4b"/>
+      </g>
+    </g>
+    <path d="M16.7 20.0c0.15 1.7 2.05 1.7 2.2 0" stroke="#2a3b4b" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg></div><div class="cap" style="color:#a7bccf">生闷气</div></div></div></div>
+  <div class="row"><div class="who"><div class="nm" style="color:#efb2c6">林小满</div><div class="tp">可爱</div></div><div class="cols"><div class="cell"><div class="icon" style="background:#2a1b23"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="120" height="120" fill="none" overflow="visible">
+  <title>平静</title>
+  <style>
+
+    .keai-calm-head, .keai-calm-eyes, .keai-calm-gaze {
+      transform-box: view-box;
+      transform-origin: 16px 16px;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .keai-calm-head, .keai-calm-eyes, .keai-calm-gaze { animation: none !important; }
+    }
+
+    .keai-calm-head { animation: keai-calm-head 4s cubic-bezier(0.45, 0, 0.2, 1) infinite; }
+    .keai-calm-eyes { animation: keai-calm-eyes 4s cubic-bezier(0.45, 0, 0.2, 1) infinite; }
+    .keai-calm-gaze { animation: keai-calm-gaze 4s cubic-bezier(0.45, 0, 0.2, 1) infinite; }
+    @keyframes keai-calm-head {
+      0%, 8% { transform: translate(0px, 0px) rotate(0deg); }
+      14%, 24% { transform: translate(1.25px, 0.15px) rotate(3.6deg); }
+      31%, 38% { transform: translate(0px, 0px) rotate(0deg); }
+      44%, 54% { transform: translate(-1.3px, 0.1px) rotate(-3.8deg); }
+      61%, 66% { transform: translate(0px, 0px) rotate(0deg); }
+      71%, 77% { transform: translate(-0.25px, -0.8px) rotate(-1.4deg); }
+      82%, 86% { transform: translate(0px, 0px) rotate(0deg); }
+      89%, 93% { transform: translate(0.8px, 0.6px) rotate(2.0deg); }
+      97%, 100% { transform: translate(0px, 0px) rotate(0deg); }
+    }
+    @keyframes keai-calm-eyes {
+      0%, 8% { transform: translate(0px, 0px); }
+      14%, 24% { transform: translate(0.75px, 0.1px); }
+      31%, 38% { transform: translate(0px, 0px); }
+      44%, 54% { transform: translate(-0.8px, 0.1px); }
+      61%, 66% { transform: translate(0px, 0px); }
+      71%, 77% { transform: translate(-0.15px, -0.6px); }
+      82%, 86% { transform: translate(0px, 0px); }
+      89%, 93% { transform: translate(0.5px, 0.45px); }
+      97%, 100% { transform: translate(0px, 0px); }
+    }
+    @keyframes keai-calm-gaze {
+      0%, 8% { transform: translate(0px, 0px); }
+      14%, 24% { transform: translate(1.2px, 0.15px); }
+      31%, 38% { transform: translate(0px, 0px); }
+      44%, 54% { transform: translate(-1.25px, 0.15px); }
+      61%, 66% { transform: translate(0px, 0px); }
+      71%, 77% { transform: translate(-0.2px, -1.05px); }
+      82%, 86% { transform: translate(0px, 0px); }
+      89%, 93% { transform: translate(1.0px, 0.8px); }
+      97%, 100% { transform: translate(0px, 0px); }
+    }
+  </style>
+  <defs>
+    <clipPath id="keai-calm-120-L"><ellipse cx="11.0" cy="14.2" rx="2.25" ry="2.25"/></clipPath>
+    <clipPath id="keai-calm-120-R"><ellipse cx="21.0" cy="14.2" rx="2.25" ry="2.25"/></clipPath>
+  </defs>
+  <circle cx="16" cy="16.7" r="14.15" fill="#6e3e55" opacity="0.28"/>
+  <g class="keai-calm-head">
+    <circle cx="16" cy="16" r="12.7" fill="#f4d6e0"/>
+    <ellipse cx="12.0" cy="10.8" rx="5.0" ry="3.3" fill="#fff8fb" opacity="0.48"/>
+    <circle cx="10.6" cy="10.1" r="1.15" fill="#fff8fb" opacity="0.80"/>
+    <g class="cheeks">
+      <ellipse cx="9.2" cy="19.4" rx="2.7" ry="1.85" fill="#e889a4" opacity="0.38"/>
+      <ellipse cx="22.8" cy="19.4" rx="2.7" ry="1.85" fill="#e889a4" opacity="0.38"/>
+    </g>
+    <circle cx="16" cy="16" r="12.7" fill="none" stroke="#7a4558" stroke-width="1.2"/>
+    <g class="keai-calm-eyes">
+      <ellipse cx="11.0" cy="14.2" rx="2.25" ry="2.25" fill="#5a3344"/>
+      <ellipse cx="21.0" cy="14.2" rx="2.25" ry="2.25" fill="#5a3344"/>
+      <g class="keai-calm-gaze">
+        <circle clip-path="url(#keai-calm-120-L)" cx="11.15" cy="13.55" r="0.85" fill="#fff8fb"/>
+        <circle clip-path="url(#keai-calm-120-R)" cx="21.15" cy="13.55" r="0.85" fill="#fff8fb"/>
+      </g>
+    </g>
+    <path d="M13.5 20.0q2.5 1.85 5.0 0" stroke="#5a3344" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg></div><div class="cap" style="color:#efb2c6">平静</div></div><div class="cell"><div class="icon" style="background:#2a1b23"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="120" height="120" fill="none" overflow="visible">
+  <title>开心</title>
+  <style>
+
+    .keai-happy-head, .keai-happy-eyes, .keai-happy-gaze {
+      transform-box: view-box;
+      transform-origin: 16px 16px;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .keai-happy-head, .keai-happy-eyes, .keai-happy-gaze { animation: none !important; }
+    }
+
+    .keai-happy-head { animation: keai-happy-head 4s cubic-bezier(0.45, 0, 0.2, 1) infinite; }
+    .keai-happy-eyes { animation: keai-happy-eyes 4s cubic-bezier(0.45, 0, 0.2, 1) infinite; }
+    @keyframes keai-happy-head {
+      0%, 7% { transform: translate(0px, 0px) rotate(0deg); }
+      13%, 23% { transform: translate(-1.3px, -0.1px) rotate(-3.8deg); }
+      29%, 34% { transform: translate(0px, 0px) rotate(0deg); }
+      39%, 52% { transform: translate(1.35px, 0.12px) rotate(4.0deg); }
+      58%, 64% { transform: translate(0px, 0px) rotate(0deg); }
+      69%, 75% { transform: translate(-0.3px, -0.85px) rotate(-1.2deg); }
+      80%, 85% { transform: translate(0px, 0px) rotate(0deg); }
+      89%, 93% { transform: translate(0.9px, 0.55px) rotate(2.2deg); }
+      97%, 100% { transform: translate(0px, 0px) rotate(0deg); }
+    }
+    @keyframes keai-happy-eyes {
+      0%, 7% { transform: translate(0px, 0px); }
+      13%, 23% { transform: translate(-1.8px, -0.15px); }
+      29%, 34% { transform: translate(0px, 0px); }
+      39%, 52% { transform: translate(1.85px, 0.15px); }
+      58%, 64% { transform: translate(0px, 0px); }
+      69%, 75% { transform: translate(-0.3px, -1.25px); }
+      80%, 85% { transform: translate(0px, 0px); }
+      89%, 93% { transform: translate(1.3px, 0.9px); }
+      97%, 100% { transform: translate(0px, 0px); }
+    }
+  </style>
+  <circle cx="16" cy="16.7" r="14.15" fill="#6e3e55" opacity="0.28"/>
+  <g class="keai-happy-head">
+    <circle cx="16" cy="16" r="12.7" fill="#f7dce6"/>
+    <ellipse cx="12.0" cy="10.8" rx="5.0" ry="3.3" fill="#fff8fb" opacity="0.48"/>
+    <circle cx="10.6" cy="10.1" r="1.15" fill="#fff8fb" opacity="0.80"/>
+    <g class="cheeks">
+      <ellipse cx="9.2" cy="19.4" rx="2.7" ry="1.85" fill="#e889a4" opacity="0.62"/>
+      <ellipse cx="22.8" cy="19.4" rx="2.7" ry="1.85" fill="#e889a4" opacity="0.62"/>
+    </g>
+    <circle cx="16" cy="16" r="12.7" fill="none" stroke="#7a4558" stroke-width="1.2"/>
+    <g class="keai-happy-eyes">
+      <path d="M8.6 15.35q2.35-2.55 4.7 0" stroke="#5a3344" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M18.7 15.35q2.35-2.55 4.7 0" stroke="#5a3344" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <path d="M12.4 19.55q3.6 3.35 7.2 0" stroke="#5a3344" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg></div><div class="cap" style="color:#efb2c6">开心</div></div><div class="cell"><div class="icon" style="background:#2a1b23"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="120" height="120" fill="none" overflow="visible">
+  <title>生闷气</title>
+  <style>
+
+    .keai-sulky-head, .keai-sulky-eyes, .keai-sulky-gaze {
+      transform-box: view-box;
+      transform-origin: 16px 16px;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .keai-sulky-head, .keai-sulky-eyes, .keai-sulky-gaze { animation: none !important; }
+    }
+
+    .keai-sulky-head { animation: keai-sulky-head 4s cubic-bezier(0.45, 0, 0.2, 1) infinite; }
+    .keai-sulky-eyes { animation: keai-sulky-eyes 4s cubic-bezier(0.45, 0, 0.2, 1) infinite; }
+    .keai-sulky-gaze { animation: keai-sulky-gaze 4s cubic-bezier(0.45, 0, 0.2, 1) infinite; }
+    @keyframes keai-sulky-head {
+      0%, 9% { transform: translate(0px, 0px) rotate(0deg); }
+      15%, 28% { transform: translate(-1.25px, 0.12px) rotate(-3.7deg); }
+      35%, 42% { transform: translate(0px, 0px) rotate(0deg); }
+      48%, 63% { transform: translate(1.3px, 0.1px) rotate(3.5deg); }
+      70%, 76% { transform: translate(0px, 0px) rotate(0deg); }
+      81%, 87% { transform: translate(0.6px, -0.7px) rotate(1.7deg); }
+      93%, 100% { transform: translate(0px, 0px) rotate(0deg); }
+    }
+    @keyframes keai-sulky-eyes {
+      0%, 9% { transform: translate(0px, 0px); }
+      15%, 28% { transform: translate(-0.75px, 0.1px); }
+      35%, 42% { transform: translate(0px, 0px); }
+      48%, 63% { transform: translate(0.8px, 0.1px); }
+      70%, 76% { transform: translate(0px, 0px); }
+      81%, 87% { transform: translate(0.4px, -0.55px); }
+      93%, 100% { transform: translate(0px, 0px); }
+    }
+    @keyframes keai-sulky-gaze {
+      0%, 9% { transform: translate(0px, 0px); }
+      15%, 28% { transform: translate(-1.2px, 0.15px); }
+      35%, 42% { transform: translate(0px, 0px); }
+      48%, 63% { transform: translate(1.25px, 0.12px); }
+      70%, 76% { transform: translate(0px, 0px); }
+      81%, 87% { transform: translate(0.65px, -1.0px); }
+      93%, 100% { transform: translate(0px, 0px); }
+    }
+  </style>
+  <defs>
+    <clipPath id="keai-sulky-120-L"><ellipse cx="11.3" cy="14.85" rx="2.15" ry="2.05"/></clipPath>
+    <clipPath id="keai-sulky-120-R"><ellipse cx="21.4" cy="14.85" rx="2.15" ry="2.05"/></clipPath>
+  </defs>
+  <path d="M16 2.15 C23.5 2.15 29.15 7.5 29.4 14.3 C31.6 16.7 31.85 22.05 28.7 25.2 C25.85 30.45 19.7 31.25 16 31.25 C12.3 31.25 6.15 30.45 3.3 25.2 C0.15 22.05 0.4 16.7 2.6 14.3 C2.85 7.5 8.5 2.15 16 2.15 Z" fill="#6e3e55" opacity="0.26"/>
+  <g class="keai-sulky-head">
+    <path d="M16 3.35 C22.7 3.35 27.7 8.15 27.95 14.35 C29.85 16.55 30.05 21.25 27.35 24.05 C24.85 28.85 19.35 29.65 16 29.65 C12.65 29.65 7.15 28.85 4.65 24.05 C1.95 21.25 2.15 16.55 4.05 14.35 C4.3 8.15 9.3 3.35 16 3.35 Z" fill="#f0cdd8"/>
+    <ellipse cx="12.0" cy="10.7" rx="4.8" ry="3.1" fill="#fff8fb" opacity="0.48"/>
+    <circle cx="10.5" cy="10.0" r="1.1" fill="#fff8fb" opacity="0.80"/>
+    <g class="cheeks">
+      <ellipse cx="8.2" cy="20.2" rx="3.0" ry="2.1" fill="#e889a4" opacity="0.72"/>
+      <ellipse cx="23.8" cy="20.2" rx="3.0" ry="2.1" fill="#e889a4" opacity="0.72"/>
+    </g>
+    <path d="M16 3.35 C22.7 3.35 27.7 8.15 27.95 14.35 C29.85 16.55 30.05 21.25 27.35 24.05 C24.85 28.85 19.35 29.65 16 29.65 C12.65 29.65 7.15 28.85 4.65 24.05 C1.95 21.25 2.15 16.55 4.05 14.35 C4.3 8.15 9.3 3.35 16 3.35 Z" fill="none" stroke="#7a4558" stroke-width="1.2"/>
+    <path d="M8.3 12.2h5.1" stroke="#5a3344" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M18.6 12.2h5.1" stroke="#5a3344" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <g class="keai-sulky-eyes">
+      <ellipse cx="11.3" cy="14.85" rx="2.15" ry="2.05" fill="#5a3344"/>
+      <ellipse cx="21.4" cy="14.85" rx="2.15" ry="2.05" fill="#5a3344"/>
+      <g class="keai-sulky-gaze">
+        <circle clip-path="url(#keai-sulky-120-L)" cx="11.3" cy="14.2" r="0.85" fill="#fff8fb"/>
+        <circle clip-path="url(#keai-sulky-120-R)" cx="21.4" cy="14.2" r="0.85" fill="#fff8fb"/>
+      </g>
+    </g>
+    <path d="M16.5 20.15c0.2 1.9 2.35 1.9 2.55 0" stroke="#5a3344" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg></div><div class="cap" style="color:#efb2c6">生闷气</div></div></div></div>
+  <hr/>
+  <div class="sec">28 px 小尺寸效果</div>
+  <div class="tiny">
+  <div class="row"><div class="who"><div class="nm" style="color:#a7bccf">沈清</div><div class="tp">高冷</div></div><div class="cols"><div class="cell"><div class="icon" style="background:#18202b"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="28" height="28" fill="none" overflow="visible">
+  <title>平静</title>
+  <style>
+
+    .gaoleng-calm-head, .gaoleng-calm-eyes, .gaoleng-calm-gaze {
+      transform-box: view-box;
+      transform-origin: 16px 16px;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .gaoleng-calm-head, .gaoleng-calm-eyes, .gaoleng-calm-gaze { animation: none !important; }
+    }
+
+    .gaoleng-calm-head { animation: gaoleng-calm-head 6s cubic-bezier(0.45, 0, 0.2, 1) infinite; }
+    .gaoleng-calm-eyes { animation: gaoleng-calm-eyes 6s cubic-bezier(0.45, 0, 0.2, 1) infinite; }
+    @keyframes gaoleng-calm-head {
+      0%, 12% { transform: translate(0px, 0px) rotate(0deg); }
+      18%, 28% { transform: translate(-0.85px, 0.15px) rotate(-2.6deg); }
+      35%, 44% { transform: translate(0px, 0px) rotate(0deg); }
+      50%, 62% { transform: translate(0.9px, 0.1px) rotate(2.4deg); }
+      69%, 74% { transform: translate(0px, 0px) rotate(0deg); }
+      79%, 84% { transform: translate(-0.45px, -0.6px) rotate(-1.5deg); }
+      90%, 100% { transform: translate(0px, 0px) rotate(0deg); }
+    }
+    @keyframes gaoleng-calm-eyes {
+      0%, 12% { transform: translate(0px, 0px); }
+      18%, 28% { transform: translate(-1.7px, 0.15px); }
+      35%, 44% { transform: translate(0px, 0px); }
+      50%, 62% { transform: translate(1.75px, 0.1px); }
+      69%, 74% { transform: translate(0px, 0px); }
+      79%, 84% { transform: translate(-0.9px, -1.1px); }
+      90%, 100% { transform: translate(0px, 0px); }
+    }
+  </style>
+  <circle cx="16" cy="16.7" r="14.15" fill="#3d5266" opacity="0.28"/>
+  <g class="gaoleng-calm-head">
+    <circle cx="16" cy="16" r="12.55" fill="#c8d5e0"/>
+    <ellipse cx="12.3" cy="11.1" rx="4.0" ry="2.5" fill="#eef3f7" opacity="0.30"/>
+    <circle cx="16" cy="16" r="12.55" fill="none" stroke="#3a4e60" stroke-width="1.1"/>
+    <g class="gaoleng-calm-eyes">
+      <path d="M8.7 14.7h4.8" stroke="#2a3b4b" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M18.5 14.7h4.8" stroke="#2a3b4b" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <path d="M14.3 20.35h3.4" stroke="#2a3b4b" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg></div><div class="cap" style="color:#a7bccf">平静</div></div><div class="cell"><div class="icon" style="background:#18202b"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="28" height="28" fill="none" overflow="visible">
+  <title>开心</title>
+  <style>
+
+    .gaoleng-happy-head, .gaoleng-happy-eyes, .gaoleng-happy-gaze {
+      transform-box: view-box;
+      transform-origin: 16px 16px;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .gaoleng-happy-head, .gaoleng-happy-eyes, .gaoleng-happy-gaze { animation: none !important; }
+    }
+
+    .gaoleng-happy-head { animation: gaoleng-happy-head 6s cubic-bezier(0.45, 0, 0.2, 1) infinite; }
+    .gaoleng-happy-eyes { animation: gaoleng-happy-eyes 6s cubic-bezier(0.45, 0, 0.2, 1) infinite; }
+    @keyframes gaoleng-happy-head {
+      0%, 11% { transform: translate(0px, 0px) rotate(0deg); }
+      17%, 26% { transform: translate(-0.8px, -0.1px) rotate(-2.4deg); }
+      33%, 41% { transform: translate(0px, 0px) rotate(0deg); }
+      46%, 53% { transform: translate(-0.2px, -0.65px) rotate(-1.0deg); }
+      59%, 66% { transform: translate(0px, 0px) rotate(0deg); }
+      72%, 84% { transform: translate(0.95px, 0.1px) rotate(2.6deg); }
+      91%, 100% { transform: translate(0px, 0px) rotate(0deg); }
+    }
+    @keyframes gaoleng-happy-eyes {
+      0%, 11% { transform: translate(0px, 0px); }
+      17%, 26% { transform: translate(-1.65px, -0.15px); }
+      33%, 41% { transform: translate(0px, 0px); }
+      46%, 53% { transform: translate(-0.25px, -1.15px); }
+      59%, 66% { transform: translate(0px, 0px); }
+      72%, 84% { transform: translate(1.75px, 0.1px); }
+      91%, 100% { transform: translate(0px, 0px); }
+    }
+  </style>
+  <circle cx="16" cy="16.7" r="14.15" fill="#3d5266" opacity="0.28"/>
+  <g class="gaoleng-happy-head">
+    <circle cx="16" cy="16" r="12.55" fill="#d0dbe6"/>
+    <ellipse cx="12.3" cy="11.1" rx="4.0" ry="2.5" fill="#eef3f7" opacity="0.30"/>
+    <g class="cheeks">
+      <ellipse cx="9.2" cy="19.4" rx="2.7" ry="1.85" fill="#c4b4bc" opacity="0.08"/>
+      <ellipse cx="22.8" cy="19.4" rx="2.7" ry="1.85" fill="#c4b4bc" opacity="0.08"/>
+    </g>
+    <circle cx="16" cy="16" r="12.55" fill="none" stroke="#3a4e60" stroke-width="1.1"/>
+    <g class="gaoleng-happy-eyes">
+      <path d="M8.6 15.35q2.35-2.55 4.7 0" stroke="#2a3b4b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M18.7 15.35q2.35-2.55 4.7 0" stroke="#2a3b4b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <path d="M13.3 19.7q2.7 2.55 5.4 0" stroke="#2a3b4b" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg></div><div class="cap" style="color:#a7bccf">开心</div></div><div class="cell"><div class="icon" style="background:#18202b"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="28" height="28" fill="none" overflow="visible">
+  <title>生闷气</title>
+  <style>
+
+    .gaoleng-sulky-head, .gaoleng-sulky-eyes, .gaoleng-sulky-gaze {
+      transform-box: view-box;
+      transform-origin: 16px 16px;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .gaoleng-sulky-head, .gaoleng-sulky-eyes, .gaoleng-sulky-gaze { animation: none !important; }
+    }
+
+    .gaoleng-sulky-head { animation: gaoleng-sulky-head 6s cubic-bezier(0.45, 0, 0.2, 1) infinite; }
+    .gaoleng-sulky-eyes, .gaoleng-sulky-gaze { animation: gaoleng-sulky-eyes 6s cubic-bezier(0.45, 0, 0.2, 1) infinite; }
+    @keyframes gaoleng-sulky-head {
+      0%, 10% { transform: translate(0px, 0px) rotate(0deg); }
+      16%, 28% { transform: translate(0.85px, 0.12px) rotate(2.5deg); }
+      35%, 43% { transform: translate(0px, 0px) rotate(0deg); }
+      49%, 62% { transform: translate(-0.95px, 0.08px) rotate(-2.7deg); }
+      69%, 76% { transform: translate(0px, 0px) rotate(0deg); }
+      81%, 86% { transform: translate(0.35px, 0.6px) rotate(1.2deg); }
+      92%, 100% { transform: translate(0px, 0px) rotate(0deg); }
+    }
+    @keyframes gaoleng-sulky-eyes {
+      0%, 10% { transform: translate(0px, 0px); }
+      16%, 28% { transform: translate(1.25px, 0.12px); }
+      35%, 43% { transform: translate(0px, 0px); }
+      49%, 62% { transform: translate(-1.3px, 0.1px); }
+      69%, 76% { transform: translate(0px, 0px); }
+      81%, 86% { transform: translate(0.5px, 0.85px); }
+      92%, 100% { transform: translate(0px, 0px); }
+    }
+  </style>
+  <path d="M16 2.15 C23.5 2.15 29.15 7.5 29.4 14.3 C31.6 16.7 31.85 22.05 28.7 25.2 C25.85 30.45 19.7 31.25 16 31.25 C12.3 31.25 6.15 30.45 3.3 25.2 C0.15 22.05 0.4 16.7 2.6 14.3 C2.85 7.5 8.5 2.15 16 2.15 Z" fill="#3d5266" opacity="0.26"/>
+  <g class="gaoleng-sulky-head">
+    <path d="M16 3.35 C22.7 3.35 27.7 8.15 27.95 14.35 C29.85 16.55 30.05 21.25 27.35 24.05 C24.85 28.85 19.35 29.65 16 29.65 C12.65 29.65 7.15 28.85 4.65 24.05 C1.95 21.25 2.15 16.55 4.05 14.35 C4.3 8.15 9.3 3.35 16 3.35 Z" fill="#c5ced8"/>
+    <ellipse cx="12.2" cy="11.0" rx="3.8" ry="2.3" fill="#eef3f7" opacity="0.30"/>
+    <g class="cheeks">
+      <ellipse cx="8.2" cy="20.2" rx="3.0" ry="2.1" fill="#c4b4bc" opacity="0.45"/>
+      <ellipse cx="23.8" cy="20.2" rx="3.0" ry="2.1" fill="#c4b4bc" opacity="0.45"/>
+    </g>
+    <path d="M16 3.35 C22.7 3.35 27.7 8.15 27.95 14.35 C29.85 16.55 30.05 21.25 27.35 24.05 C24.85 28.85 19.35 29.65 16 29.65 C12.65 29.65 7.15 28.85 4.65 24.05 C1.95 21.25 2.15 16.55 4.05 14.35 C4.3 8.15 9.3 3.35 16 3.35 Z" fill="none" stroke="#3a4e60" stroke-width="1.1"/>
+    <path d="M8.6 12.55h5.0" stroke="#2a3b4b" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M18.4 12.55h5.0" stroke="#2a3b4b" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+    <g class="gaoleng-sulky-eyes">
+      <path d="M8.9 14.85h4.5" stroke="#2a3b4b" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M18.6 14.85h4.5" stroke="#2a3b4b" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+      <g class="gaoleng-sulky-gaze">
+        <circle cx="11.15" cy="14.85" r="0.95" fill="#2a3b4b"/>
+        <circle cx="20.85" cy="14.85" r="0.95" fill="#2a3b4b"/>
+      </g>
+    </g>
+    <path d="M16.7 20.0c0.15 1.7 2.05 1.7 2.2 0" stroke="#2a3b4b" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg></div><div class="cap" style="color:#a7bccf">生闷气</div></div></div></div>
+  <div class="row"><div class="who"><div class="nm" style="color:#efb2c6">林小满</div><div class="tp">可爱</div></div><div class="cols"><div class="cell"><div class="icon" style="background:#2a1b23"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="28" height="28" fill="none" overflow="visible">
+  <title>平静</title>
+  <style>
+
+    .keai-calm-head, .keai-calm-eyes, .keai-calm-gaze {
+      transform-box: view-box;
+      transform-origin: 16px 16px;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .keai-calm-head, .keai-calm-eyes, .keai-calm-gaze { animation: none !important; }
+    }
+
+    .keai-calm-head { animation: keai-calm-head 4s cubic-bezier(0.45, 0, 0.2, 1) infinite; }
+    .keai-calm-eyes { animation: keai-calm-eyes 4s cubic-bezier(0.45, 0, 0.2, 1) infinite; }
+    .keai-calm-gaze { animation: keai-calm-gaze 4s cubic-bezier(0.45, 0, 0.2, 1) infinite; }
+    @keyframes keai-calm-head {
+      0%, 8% { transform: translate(0px, 0px) rotate(0deg); }
+      14%, 24% { transform: translate(1.25px, 0.15px) rotate(3.6deg); }
+      31%, 38% { transform: translate(0px, 0px) rotate(0deg); }
+      44%, 54% { transform: translate(-1.3px, 0.1px) rotate(-3.8deg); }
+      61%, 66% { transform: translate(0px, 0px) rotate(0deg); }
+      71%, 77% { transform: translate(-0.25px, -0.8px) rotate(-1.4deg); }
+      82%, 86% { transform: translate(0px, 0px) rotate(0deg); }
+      89%, 93% { transform: translate(0.8px, 0.6px) rotate(2.0deg); }
+      97%, 100% { transform: translate(0px, 0px) rotate(0deg); }
+    }
+    @keyframes keai-calm-eyes {
+      0%, 8% { transform: translate(0px, 0px); }
+      14%, 24% { transform: translate(0.75px, 0.1px); }
+      31%, 38% { transform: translate(0px, 0px); }
+      44%, 54% { transform: translate(-0.8px, 0.1px); }
+      61%, 66% { transform: translate(0px, 0px); }
+      71%, 77% { transform: translate(-0.15px, -0.6px); }
+      82%, 86% { transform: translate(0px, 0px); }
+      89%, 93% { transform: translate(0.5px, 0.45px); }
+      97%, 100% { transform: translate(0px, 0px); }
+    }
+    @keyframes keai-calm-gaze {
+      0%, 8% { transform: translate(0px, 0px); }
+      14%, 24% { transform: translate(1.2px, 0.15px); }
+      31%, 38% { transform: translate(0px, 0px); }
+      44%, 54% { transform: translate(-1.25px, 0.15px); }
+      61%, 66% { transform: translate(0px, 0px); }
+      71%, 77% { transform: translate(-0.2px, -1.05px); }
+      82%, 86% { transform: translate(0px, 0px); }
+      89%, 93% { transform: translate(1.0px, 0.8px); }
+      97%, 100% { transform: translate(0px, 0px); }
+    }
+  </style>
+  <defs>
+    <clipPath id="keai-calm-28-L"><ellipse cx="11.0" cy="14.2" rx="2.25" ry="2.25"/></clipPath>
+    <clipPath id="keai-calm-28-R"><ellipse cx="21.0" cy="14.2" rx="2.25" ry="2.25"/></clipPath>
+  </defs>
+  <circle cx="16" cy="16.7" r="14.15" fill="#6e3e55" opacity="0.28"/>
+  <g class="keai-calm-head">
+    <circle cx="16" cy="16" r="12.7" fill="#f4d6e0"/>
+    <ellipse cx="12.0" cy="10.8" rx="5.0" ry="3.3" fill="#fff8fb" opacity="0.48"/>
+    <circle cx="10.6" cy="10.1" r="1.15" fill="#fff8fb" opacity="0.80"/>
+    <g class="cheeks">
+      <ellipse cx="9.2" cy="19.4" rx="2.7" ry="1.85" fill="#e889a4" opacity="0.38"/>
+      <ellipse cx="22.8" cy="19.4" rx="2.7" ry="1.85" fill="#e889a4" opacity="0.38"/>
+    </g>
+    <circle cx="16" cy="16" r="12.7" fill="none" stroke="#7a4558" stroke-width="1.2"/>
+    <g class="keai-calm-eyes">
+      <ellipse cx="11.0" cy="14.2" rx="2.25" ry="2.25" fill="#5a3344"/>
+      <ellipse cx="21.0" cy="14.2" rx="2.25" ry="2.25" fill="#5a3344"/>
+      <g class="keai-calm-gaze">
+        <circle clip-path="url(#keai-calm-28-L)" cx="11.15" cy="13.55" r="0.85" fill="#fff8fb"/>
+        <circle clip-path="url(#keai-calm-28-R)" cx="21.15" cy="13.55" r="0.85" fill="#fff8fb"/>
+      </g>
+    </g>
+    <path d="M13.5 20.0q2.5 1.85 5.0 0" stroke="#5a3344" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg></div><div class="cap" style="color:#efb2c6">平静</div></div><div class="cell"><div class="icon" style="background:#2a1b23"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="28" height="28" fill="none" overflow="visible">
+  <title>开心</title>
+  <style>
+
+    .keai-happy-head, .keai-happy-eyes, .keai-happy-gaze {
+      transform-box: view-box;
+      transform-origin: 16px 16px;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .keai-happy-head, .keai-happy-eyes, .keai-happy-gaze { animation: none !important; }
+    }
+
+    .keai-happy-head { animation: keai-happy-head 4s cubic-bezier(0.45, 0, 0.2, 1) infinite; }
+    .keai-happy-eyes { animation: keai-happy-eyes 4s cubic-bezier(0.45, 0, 0.2, 1) infinite; }
+    @keyframes keai-happy-head {
+      0%, 7% { transform: translate(0px, 0px) rotate(0deg); }
+      13%, 23% { transform: translate(-1.3px, -0.1px) rotate(-3.8deg); }
+      29%, 34% { transform: translate(0px, 0px) rotate(0deg); }
+      39%, 52% { transform: translate(1.35px, 0.12px) rotate(4.0deg); }
+      58%, 64% { transform: translate(0px, 0px) rotate(0deg); }
+      69%, 75% { transform: translate(-0.3px, -0.85px) rotate(-1.2deg); }
+      80%, 85% { transform: translate(0px, 0px) rotate(0deg); }
+      89%, 93% { transform: translate(0.9px, 0.55px) rotate(2.2deg); }
+      97%, 100% { transform: translate(0px, 0px) rotate(0deg); }
+    }
+    @keyframes keai-happy-eyes {
+      0%, 7% { transform: translate(0px, 0px); }
+      13%, 23% { transform: translate(-1.8px, -0.15px); }
+      29%, 34% { transform: translate(0px, 0px); }
+      39%, 52% { transform: translate(1.85px, 0.15px); }
+      58%, 64% { transform: translate(0px, 0px); }
+      69%, 75% { transform: translate(-0.3px, -1.25px); }
+      80%, 85% { transform: translate(0px, 0px); }
+      89%, 93% { transform: translate(1.3px, 0.9px); }
+      97%, 100% { transform: translate(0px, 0px); }
+    }
+  </style>
+  <circle cx="16" cy="16.7" r="14.15" fill="#6e3e55" opacity="0.28"/>
+  <g class="keai-happy-head">
+    <circle cx="16" cy="16" r="12.7" fill="#f7dce6"/>
+    <ellipse cx="12.0" cy="10.8" rx="5.0" ry="3.3" fill="#fff8fb" opacity="0.48"/>
+    <circle cx="10.6" cy="10.1" r="1.15" fill="#fff8fb" opacity="0.80"/>
+    <g class="cheeks">
+      <ellipse cx="9.2" cy="19.4" rx="2.7" ry="1.85" fill="#e889a4" opacity="0.62"/>
+      <ellipse cx="22.8" cy="19.4" rx="2.7" ry="1.85" fill="#e889a4" opacity="0.62"/>
+    </g>
+    <circle cx="16" cy="16" r="12.7" fill="none" stroke="#7a4558" stroke-width="1.2"/>
+    <g class="keai-happy-eyes">
+      <path d="M8.6 15.35q2.35-2.55 4.7 0" stroke="#5a3344" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M18.7 15.35q2.35-2.55 4.7 0" stroke="#5a3344" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <path d="M12.4 19.55q3.6 3.35 7.2 0" stroke="#5a3344" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg></div><div class="cap" style="color:#efb2c6">开心</div></div><div class="cell"><div class="icon" style="background:#2a1b23"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="28" height="28" fill="none" overflow="visible">
+  <title>生闷气</title>
+  <style>
+
+    .keai-sulky-head, .keai-sulky-eyes, .keai-sulky-gaze {
+      transform-box: view-box;
+      transform-origin: 16px 16px;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .keai-sulky-head, .keai-sulky-eyes, .keai-sulky-gaze { animation: none !important; }
+    }
+
+    .keai-sulky-head { animation: keai-sulky-head 4s cubic-bezier(0.45, 0, 0.2, 1) infinite; }
+    .keai-sulky-eyes { animation: keai-sulky-eyes 4s cubic-bezier(0.45, 0, 0.2, 1) infinite; }
+    .keai-sulky-gaze { animation: keai-sulky-gaze 4s cubic-bezier(0.45, 0, 0.2, 1) infinite; }
+    @keyframes keai-sulky-head {
+      0%, 9% { transform: translate(0px, 0px) rotate(0deg); }
+      15%, 28% { transform: translate(-1.25px, 0.12px) rotate(-3.7deg); }
+      35%, 42% { transform: translate(0px, 0px) rotate(0deg); }
+      48%, 63% { transform: translate(1.3px, 0.1px) rotate(3.5deg); }
+      70%, 76% { transform: translate(0px, 0px) rotate(0deg); }
+      81%, 87% { transform: translate(0.6px, -0.7px) rotate(1.7deg); }
+      93%, 100% { transform: translate(0px, 0px) rotate(0deg); }
+    }
+    @keyframes keai-sulky-eyes {
+      0%, 9% { transform: translate(0px, 0px); }
+      15%, 28% { transform: translate(-0.75px, 0.1px); }
+      35%, 42% { transform: translate(0px, 0px); }
+      48%, 63% { transform: translate(0.8px, 0.1px); }
+      70%, 76% { transform: translate(0px, 0px); }
+      81%, 87% { transform: translate(0.4px, -0.55px); }
+      93%, 100% { transform: translate(0px, 0px); }
+    }
+    @keyframes keai-sulky-gaze {
+      0%, 9% { transform: translate(0px, 0px); }
+      15%, 28% { transform: translate(-1.2px, 0.15px); }
+      35%, 42% { transform: translate(0px, 0px); }
+      48%, 63% { transform: translate(1.25px, 0.12px); }
+      70%, 76% { transform: translate(0px, 0px); }
+      81%, 87% { transform: translate(0.65px, -1.0px); }
+      93%, 100% { transform: translate(0px, 0px); }
+    }
+  </style>
+  <defs>
+    <clipPath id="keai-sulky-28-L"><ellipse cx="11.3" cy="14.85" rx="2.15" ry="2.05"/></clipPath>
+    <clipPath id="keai-sulky-28-R"><ellipse cx="21.4" cy="14.85" rx="2.15" ry="2.05"/></clipPath>
+  </defs>
+  <path d="M16 2.15 C23.5 2.15 29.15 7.5 29.4 14.3 C31.6 16.7 31.85 22.05 28.7 25.2 C25.85 30.45 19.7 31.25 16 31.25 C12.3 31.25 6.15 30.45 3.3 25.2 C0.15 22.05 0.4 16.7 2.6 14.3 C2.85 7.5 8.5 2.15 16 2.15 Z" fill="#6e3e55" opacity="0.26"/>
+  <g class="keai-sulky-head">
+    <path d="M16 3.35 C22.7 3.35 27.7 8.15 27.95 14.35 C29.85 16.55 30.05 21.25 27.35 24.05 C24.85 28.85 19.35 29.65 16 29.65 C12.65 29.65 7.15 28.85 4.65 24.05 C1.95 21.25 2.15 16.55 4.05 14.35 C4.3 8.15 9.3 3.35 16 3.35 Z" fill="#f0cdd8"/>
+    <ellipse cx="12.0" cy="10.7" rx="4.8" ry="3.1" fill="#fff8fb" opacity="0.48"/>
+    <circle cx="10.5" cy="10.0" r="1.1" fill="#fff8fb" opacity="0.80"/>
+    <g class="cheeks">
+      <ellipse cx="8.2" cy="20.2" rx="3.0" ry="2.1" fill="#e889a4" opacity="0.72"/>
+      <ellipse cx="23.8" cy="20.2" rx="3.0" ry="2.1" fill="#e889a4" opacity="0.72"/>
+    </g>
+    <path d="M16 3.35 C22.7 3.35 27.7 8.15 27.95 14.35 C29.85 16.55 30.05 21.25 27.35 24.05 C24.85 28.85 19.35 29.65 16 29.65 C12.65 29.65 7.15 28.85 4.65 24.05 C1.95 21.25 2.15 16.55 4.05 14.35 C4.3 8.15 9.3 3.35 16 3.35 Z" fill="none" stroke="#7a4558" stroke-width="1.2"/>
+    <path d="M8.3 12.2h5.1" stroke="#5a3344" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M18.6 12.2h5.1" stroke="#5a3344" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <g class="keai-sulky-eyes">
+      <ellipse cx="11.3" cy="14.85" rx="2.15" ry="2.05" fill="#5a3344"/>
+      <ellipse cx="21.4" cy="14.85" rx="2.15" ry="2.05" fill="#5a3344"/>
+      <g class="keai-sulky-gaze">
+        <circle clip-path="url(#keai-sulky-28-L)" cx="11.3" cy="14.2" r="0.85" fill="#fff8fb"/>
+        <circle clip-path="url(#keai-sulky-28-R)" cx="21.4" cy="14.2" r="0.85" fill="#fff8fb"/>
+      </g>
+    </g>
+    <path d="M16.5 20.15c0.2 1.9 2.35 1.9 2.55 0" stroke="#5a3344" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg></div><div class="cap" style="color:#efb2c6">生闷气</div></div></div></div>
+  </div>
+  <footer>「之间」设计小样　·　作者 刘博宇SolarSystem</footer>
+<script>
+(function(){
+  if (new URLSearchParams(location.search).has('paused')) {
+    document.documentElement.classList.add('paused');
+  }
+  window.startLook = function(){ document.documentElement.classList.remove('paused'); };
+  window.seekLook = function(ms){
+    document.documentElement.classList.remove('paused');
+    const anims = document.getAnimations();
+    for (const a of anims) { a.pause(); a.currentTime = ms; }
+    return anims.length;
+  };
+})();
+</script>
+</body></html>

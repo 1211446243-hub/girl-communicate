@@ -25,6 +25,7 @@ contextBridge.exposeInMainWorld('zhijian', {
     exportAs: (personaId, format) => ipcRenderer.invoke('chat:export', personaId, format),
     mood: (personaId) => ipcRenderer.invoke('mood:get', personaId),
     moodIcon: (personaId, emotion) => ipcRenderer.invoke('mood:icon', personaId, emotion),
+    typing: (personaId) => ipcRenderer.send('chat:typing', personaId),
     onEvent: (cb) => {
       const h = (_e, data) => cb(data);
       ipcRenderer.on('chat:event', h);

@@ -15,6 +15,7 @@ function parseChatFile(raw) {
     ts = Number.isFinite(t) && t > 0 ? t : ts + 1000;
     const item = { role: m.role, content: m.content.slice(0, 20000), ts };
     if (m.partial) item.partial = true;
+    if (m.proactive) { item.proactive = true; if (['followup', 'proactive', 'care'].includes(m.kind)) item.kind = m.kind; } // v1.7 她主动发的
     out.push(item);
   }
   if (!out.length) return { ok: false, message: '文件里的聊天记录是空的' };
