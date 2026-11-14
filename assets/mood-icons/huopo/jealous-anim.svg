@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" overflow="visible">
+  <title>吃醋</title>
+  <style>
+    .eye, .cheeks, .pupil, .star, .steam, .tear, .heart, .yawn, .mouth {
+      transform-box: fill-box; transform-origin: center;
+    }
+    .root { transform-box: fill-box; transform-origin: 16px 22px; }
+
+    .pupil { animation: peek 2.15s ease-in-out infinite; }
+    @keyframes peek {
+      0%, 100% { transform: translateX(1.47px); }
+      50% { transform: translateX(-1.47px); }
+    }
+    .heart { animation: heartbit 2.15s ease-in-out infinite; }
+    @keyframes heartbit {
+      0%, 42%, 100% { opacity: 0.4; transform: scale(0.9); }
+      55% { opacity: 1; transform: scale(1.22); }
+      70% { opacity: 0.55; transform: scale(1); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .movable, .movable * { animation: none !important; }
+    }
+  </style>
+  <g class="root movable">
+      <circle cx="16" cy="16.7" r="14.15" fill="#7a4a2a" opacity="0.28"/>
+      <circle class="face-shape" cx="16" cy="16" r="12.7" fill="#f3c8b4"/>
+      <ellipse cx="12.0" cy="10.8" rx="5.0" ry="3.3" fill="#fff6ec" opacity="0.50"/>
+      <circle cx="10.6" cy="10.1" r="1.15" fill="#fff6ec" opacity="0.85"/>
+      <g class="cheeks">
+        <ellipse cx="9.2" cy="19.4" rx="2.7" ry="1.85" fill="#f09a7a" opacity="0.62"/>
+        <ellipse cx="22.8" cy="19.4" rx="2.7" ry="1.85" fill="#f09a7a" opacity="0.62"/>
+      </g>
+      <circle cx="16" cy="16" r="12.7" fill="none" stroke="#8a5530" stroke-width="1.2"/>
+      <g class="heart"><path d="M26.35 8.35c0-1.05-.85-1.75-1.75-1.75-.6 0-1.15.3-1.45.85-.3-.55-.85-.85-1.45-.85-.9 0-1.75.7-1.75 1.75 0 2.05 3.2 3.85 3.2 3.85s3.2-1.8 3.2-3.85z" fill="#f2b783"/></g>
+      <path d="M8.1 11.55 12.9 13.0" stroke="#5a3318" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M18.5 12.35h5.2" stroke="#5a3318" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+      <g class="eyes">
+        <g class="eye"><ellipse cx="11.15" cy="14.85" rx="2.2" ry="2.1" fill="#5a3318"/>
+          <circle class="pupil" cx="12.4" cy="14.55" r="0.85" fill="#fff6ec"/></g>
+        <g class="eye"><ellipse cx="21.2" cy="14.85" rx="2.2" ry="2.1" fill="#5a3318"/>
+          <circle class="pupil" cx="22.45" cy="14.55" r="0.85" fill="#fff6ec"/></g>
+      </g>
+      <path d="M14.7 20.55h2.6" stroke="#5a3318" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

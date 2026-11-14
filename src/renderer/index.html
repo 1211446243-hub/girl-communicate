@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'none'" />
+  <title>之间</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg" aria-hidden="true">
+    <div class="bg-layer" id="bgA"></div>
+    <div class="bg-layer" id="bgB"></div>
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+  </div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <div class="shell">
+    <header class="topbar">
+      <div class="brand">
+        <span class="logo">之间</span>
+        <span class="tagline">在你和她之间，留一盏夜灯</span>
+      </div>
+      <nav class="nav">
+        <button data-view="picker" class="nav-btn">人设</button>
+        <button data-view="chat" class="nav-btn">聊天</button>
+        <button data-view="settings" class="nav-btn">设置</button>
+      </nav>
+    </header>
+
+    <main class="views">
+      <!-- 人设选择 -->
+      <section class="view" id="view-picker">
+        <div class="picker-head">
+          <h1 class="title">今晚，想和谁说说话</h1>
+          <p class="subtitle">七种性格，七种夜色。选一个人，开始一段只属于你们的对话。</p>
+        </div>
+        <div class="cards" id="cards"></div>
+      </section>
+
+      <!-- 聊天 -->
+      <section class="view" id="view-chat">
+        <div class="chat-head">
+          <div class="avatar-wrap" id="chatAvatarWrap">
+            <div class="avatar" id="chatAvatar"></div>
+            <div class="mood-badge hidden" id="moodBadge" role="img" aria-label="当前心情"></div>
+            <div class="mood-popout" id="moodPopout" aria-hidden="true"></div>
+          </div>
+          <div class="who">
+            <div class="who-name"><span id="chatName"></span><span class="who-type" id="chatType"></span></div>
+            <div class="who-status" id="chatStatus">在线<span class="who-mood hidden" id="chatMood"></span></div>
+          </div>
+          <div class="chat-actions">
+            <button class="ghost" id="btnSearch" title="搜索聊天记录（Ctrl+F）">搜索</button>
+            <button class="ghost" id="btnMemory" title="她记得的关于你的事">她记得的事</button>
+            <button class="ghost" id="btnSwitch">换个人</button>
+            <div class="menu-wrap">
+              <button class="ghost" id="btnExport">导出 ▾</button>
+              <div class="menu" id="exportMenu">
+                <button data-format="txt">导出为 TXT</button>
+                <button data-format="json">导出为 JSON</button>
+                <hr />
+                <button data-action="import">导入 JSON…</button>
+                <button data-action="restore">从备份恢复…</button>
+              </div>
+            </div>
+            <button class="ghost danger" id="btnClear">清空</button>
+          </div>
+        </div>
+        <div class="searchbar hidden" id="searchBar">
+          <input id="searchInput" placeholder="搜索和她的聊天记录…" spellcheck="false" />
+          <span class="search-count" id="searchCount"></span>
+          <button class="ghost" id="searchPrev" title="上一个（Shift+Enter）">↑</button>
+          <button class="ghost" id="searchNext" title="下一个（Enter）">↓</button>
+          <button class="ghost" id="searchClose" title="关闭（Esc）">✕</button>
+        </div>
+        <div class="banner hidden" id="keyBanner">还没有设置 DeepSeek API Key。<button class="link" data-goto="settings">去设置 →</button></div>
+        <div class="messages" id="messages"></div>
+        <form class="composer" id="composer">
+          <textarea id="input" rows="1" placeholder="说点什么吧……" maxlength="4000"></textarea>
+          <button type="submit" class="send" id="btnSend" title="发送（Enter）">
+            <svg viewBox="0 0 24 24" width="18" height="18"><path d="M4 12h13M12 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <button type="button" class="send stop hidden" id="btnStop" title="停止">
+            <svg viewBox="0 0 24 24" width="14" height="14"><rect x="5" y="5" width="14" height="14" rx="2" fill="currentColor"/></svg>
+          </button>
+        </form>
+        <div class="hint">Enter 发送 · Shift + Enter 换行 · 她是 AI 角色，内容仅供陪伴娱乐</div>
+      </section>
+
+      <!-- 设置 -->
+      <section class="view" id="view-settings">
+        <div class="settings">
+          <h1 class="title small">设置</h1>
+
+          <div class="panel">
+            <h2>DeepSeek API Key</h2>
+            <p class="muted">在 <button class="link" data-href="https://platform.deepseek.com/api_keys">platform.deepseek.com</button> 创建自己的 Key。Key 只保存在本机，并用系统加密（Windows DPAPI）存储，不会明文写入磁盘。</p>
+            <div class="row">
+              <input type="password" id="keyInput" placeholder="sk-…" autocomplete="off" spellcheck="false" />
+              <button class="ghost" id="btnEye" type="button">显示</button>
+            </div>
+            <div class="row gap">
+              <button class="primary" id="btnSaveKey">保存</button>
+              <button class="ghost" id="btnTestKey">测试连接</button>
+              <button class="ghost danger" id="btnClearKey">清除 Key</button>
+            </div>
+            <div class="status" id="keyStatus"></div>
+          </div>
+
+          <div class="panel">
+            <h2>对话</h2>
+            <label class="field"><span>希望她怎么称呼你（可选）</span>
+              <input id="nickInput" maxlength="20" placeholder="例如：阿宇" />
+            </label>
+            <label class="field"><span>情绪显示</span>
+              <select id="emotionDisplayInput">
+                <option value="icon">头像角上的表情（默认）</option>
+                <option value="text">名字旁的文字</option>
+                <option value="both">表情加文字</option>
+                <option value="off">关闭</option>
+              </select>
+              <em>默认把此刻心情画在头像角落，循环的小动画。也可以改回原来的淡字，或者两个都显示。</em>
+            </label>
+            <label class="check"><input type="checkbox" id="memoryInput" /> <span>让她记住关于你的事<em>每聊 8 轮左右，用一次很便宜的 DeepSeek 调用，从对话里提炼几条关于你的事（称呼、工作学业、喜好、近期的事、约定），保存在本机，最多 20 条。不会记录 Key、密码、证件号这类信息。</em></span></label>
+            <div class="row"><button class="ghost" id="btnOpenMemory" type="button">查看 / 编辑她记得的事</button></div>
+            <details class="advanced" id="advanced">
+              <summary>高级设置</summary>
+            <label class="field"><span>模型名称</span>
+              <input id="modelInput" placeholder="deepseek-flash" spellcheck="false" />
+              <em>默认 deepseek-flash（快、便宜）；想要更强的文笔可填 deepseek-v4-pro（更贵）。旧名 deepseek-chat 已被官方停用。</em>
+              </label>
+              <label class="field"><span>上下文轮数 <b id="roundsVal"></b></span>
+              <input type="range" id="roundsInput" min="1" max="50" step="1" />
+              <em>每次请求带上最近 N 轮对话（一问一答为一轮）。越多越连贯，也越费 token。</em>
+              </label>
+              <label class="field"><span>回复温度 <b id="tempVal"></b></span>
+              <input type="range" id="tempInput" min="0" max="2" step="0.1" />
+              <em>越高越灵动，越低越稳定。推荐 1.0～1.3。</em>
+              </label>
+              <label class="check"><input type="checkbox" id="thinkInput" /> <span>深度思考模式<em>回复前先推理，更慢更费 token，一般聊天不需要；开启后「回复温度」不生效。</em></span></label>
+            </details>
+            <div class="row gap"><button class="primary" id="btnSaveSettings">保存设置</button></div>
+          </div>
+
+          <div class="panel">
+            <h2>窗口与通知</h2>
+            <label class="check"><input type="checkbox" id="trayInput" /> <span>关闭窗口时最小化到托盘<em>点右上角关闭后，之间会留在任务栏右下角的托盘里；右键托盘图标可以彻底退出。</em></span></label>
+            <label class="check"><input type="checkbox" id="notifyInput" /> <span>她回复时发系统通知<em>只在窗口不在前台时提醒。</em></span></label>
+            <div class="row gap"><button class="primary" id="btnSaveWindow">保存</button><button class="ghost" id="btnReplayGuide">重新看新手引导</button></div>
+          </div>
+
+          <div class="panel">
+            <h2>隐私</h2>
+            <ul class="privacy">
+              <li>聊天内容只会发送给 DeepSeek（api.deepseek.com）用于生成回复，不经过任何其他服务器。</li>
+              <li>聊天记录只保存在本机：<code id="userDataPath"></code></li>
+              <li>「她记得的事」保存在其中的 <code>memory</code> 文件夹，清空聊天前的自动备份保存在 <code>backups</code> 文件夹，都可以随时删除。</li>
+              <li>软件不内置任何 API Key，费用由你自己的 DeepSeek 账户结算。</li>
+              <li>角色是虚构的 AI，所有角色均为成年人。如果你正处在困难里，请拨打全国心理援助热线 <b>12356</b>，紧急情况请拨 <b>110 / 120</b>。</li>
+            </ul>
+          </div>
+
+          <div class="panel">
+            <h2>自定义人设</h2>
+            <p class="muted">把人设 JSON 文件放进人设文件夹，重启软件即可出现在人设列表里（格式参考 README）。</p>
+            <div class="row gap"><button class="ghost" id="btnPersonaDir">打开人设文件夹</button></div>
+          </div>
+
+          <p class="about">之间 <span id="ver"></span> · 作者 刘博宇SolarSystem</p>
+        </div>
+      </section>
+    </main>
+  </div>
+  <!-- 首次引导 -->
+  <div class="overlay hidden" id="onboard" role="dialog" aria-modal="true" aria-labelledby="obTitle">
+    <div class="modal onboard">
+      <div class="ob-steps"><i data-step="1"></i><i data-step="2"></i><i data-step="3"></i></div>
+      <section class="ob-step" data-step="1">
+        <h2 id="obTitle">欢迎来到之间</h2>
+        <p>她们用你自己的 DeepSeek API Key 聊天，费用直接从你的 DeepSeek 账户扣，软件里没有任何内置 Key。三步就能开始：</p>
+        <ol class="ob-list">
+          <li>打开 <button class="link" data-href="https://platform.deepseek.com/api_keys">platform.deepseek.com</button>，注册并登录。</li>
+          <li>在「充值」里充一点余额，几块钱就能聊很久。</li>
+          <li>进入「API keys」，点「创建 API key」，复制那串 <code>sk-</code> 开头的字符。</li>
+        </ol>
+        <div class="row gap"><button class="primary" data-ob="next">我已经复制好了</button><button class="ghost" data-ob="skip">先随便看看</button></div>
+      </section>
+      <section class="ob-step" data-step="2">
+        <h2>把 Key 粘贴到这里</h2>
+        <p class="muted">只保存在这台电脑上，用 Windows 系统加密存储。保存后会自动测一次连接。</p>
+        <div class="row"><input type="password" id="obKey" placeholder="sk-…" autocomplete="off" spellcheck="false" /></div>
+        <div class="status" id="obStatus"></div>
+        <div class="row gap"><button class="primary" data-ob="save">保存并测试连接</button><button class="ghost" data-ob="back">上一步</button><button class="ghost" data-ob="skip">稍后再填</button></div>
+      </section>
+      <section class="ob-step" data-step="3">
+        <h2>连接成功</h2>
+        <p>可以开始了。去选一个今晚想说话的人吧。把鼠标放在人设卡片上，能先看几句她平时怎么说话。</p>
+        <div class="row gap"><button class="primary" data-ob="done">去选人</button></div>
+      </section>
+    </div>
+  </div>
+
+  <!-- 她记得的事 -->
+  <div class="overlay hidden" id="memoryModal" role="dialog" aria-modal="true" aria-labelledby="memTitle">
+    <div class="modal memory">
+      <h2 id="memTitle">她记得的事</h2>
+      <p class="muted" id="memHint">从你们的聊天里提炼出来、只保存在本机的几条小事，每次聊天都会悄悄带给她。可以改、删，也可以自己加。</p>
+      <ul class="mem-list" id="memList"></ul>
+      <div class="row"><input id="memNew" maxlength="60" placeholder="自己加一条，例如：下周三有面试" /><button class="ghost" id="memAdd">添加</button></div>
+      <div class="row gap"><button class="primary" id="memSave">保存</button><button class="ghost" id="memClose">关闭</button><button class="ghost danger" id="memClear">全部清空</button></div>
+    </div>
+  </div>
+
+  <!-- 人设首次说明 -->
+  <div class="overlay hidden" id="noticeModal" role="dialog" aria-modal="true" aria-labelledby="noticeTitle">
+    <div class="modal notice">
+      <h2 id="noticeTitle"></h2>
+      <p id="noticeText"></p>
+      <div class="row gap"><button class="primary" id="noticeOk">我知道了，开始聊</button><button class="ghost" id="noticeCancel">再想想</button></div>
+    </div>
+  </div>
+
+  <!-- 清空聊天确认 -->
+  <div class="overlay hidden" id="clearModal" role="dialog" aria-modal="true" aria-labelledby="clearTitle">
+    <div class="modal notice clear-confirm">
+      <h2 id="clearTitle">清空聊天记录</h2>
+      <p id="clearText"></p>
+      <label class="check clear-mem"><input type="checkbox" id="clearMemInput" checked /><span>同时清空她记得的事（<b id="clearMemCount">0</b> 条）</span></label>
+      <p class="muted small">清空前会自动备份，之后可以撤销或从备份恢复；勾选时她记得的事也一起备份、撤销时一起恢复。</p>
+      <div class="row gap"><button class="primary danger-fill" id="clearOk">清空</button><button class="ghost" id="clearCancel">取消</button></div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" overflow="visible">
+  <title>委屈</title>
+  <style>
+    .eye, .cheeks, .pupil, .star, .steam, .tear, .heart, .yawn, .mouth {
+      transform-box: fill-box; transform-origin: center;
+    }
+    .root { transform-box: fill-box; transform-origin: 16px 22px; }
+
+    .tear { animation: teardrop 3.36s ease-in infinite; }
+    @keyframes teardrop {
+      0% { opacity: 0; transform: translateY(-1.2px); }
+      12% { opacity: 1; transform: translateY(0); }
+      72% { opacity: 1; transform: translateY(3.11px); }
+      88%, 100% { opacity: 0; transform: translateY(4.71px); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .movable, .movable * { animation: none !important; }
+    }
+  </style>
+  <g class="root movable">
+      <circle cx="16" cy="16.7" r="14.15" fill="#3d5266" opacity="0.28"/>
+      <circle class="face-shape" cx="16" cy="16" r="12.55" fill="#c3ced8"/>
+      <ellipse cx="12.3" cy="11.1" rx="4.0" ry="2.5" fill="#eef3f7" opacity="0.30"/>
+      <g class="cheeks">
+        <ellipse cx="9.2" cy="19.4" rx="2.7" ry="1.85" fill="#c4b4bc" opacity="0.12"/>
+        <ellipse cx="22.8" cy="19.4" rx="2.7" ry="1.85" fill="#c4b4bc" opacity="0.12"/>
+      </g>
+      <circle cx="16" cy="16" r="12.55" fill="none" stroke="#3a4e60" stroke-width="1.1"/>
+      <path d="M8.2 13.35q2.85-2.25 5.3 0.05" stroke="#2a3b4b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M23.8 13.35q-2.85-2.25-5.3 0.05" stroke="#2a3b4b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <g class="eyes">
+        <path d="M8.7 15.7q2.35 1.05 4.7 0" stroke="#2a3b4b" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M18.6 15.7q2.35 1.05 4.7 0" stroke="#2a3b4b" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+      <path class="tear" d="M6.55 17.55c0 2.05 2.35 2.05 2.35 0 0-1.45-1.17-2.75-1.17-2.75S6.55 16.1 6.55 17.55z" fill="#a7bccf" stroke="#2a3b4b" stroke-width="0.7"/>
+      <path d="M12.7 21.2q1.55 1.85 3.3 0q1.75 1.85 3.3 0" stroke="#2a3b4b" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

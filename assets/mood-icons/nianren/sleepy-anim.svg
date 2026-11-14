@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" overflow="visible">
+  <title>困倦</title>
+  <style>
+    .eye, .cheeks, .pupil, .star, .steam, .tear, .heart, .yawn, .mouth {
+      transform-box: fill-box; transform-origin: center;
+    }
+    .root { transform-box: fill-box; transform-origin: 16px 22px; }
+
+    .root { animation: nod 3.6s ease-in-out infinite; transform-origin: 16px 26px; }
+    @keyframes nod {
+      0%, 100% { transform: rotate(0deg); }
+      42% { transform: rotate(5.20deg); }
+      70% { transform: rotate(1.04deg); }
+    }
+    .yawn { animation: yawn 3.6s ease-in-out infinite; }
+    @keyframes yawn {
+      0%, 100% { transform: scale(1, 0.9); }
+      45% { transform: scale(1.05, 1.14); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .movable, .movable * { animation: none !important; }
+    }
+  </style>
+  <g class="root movable">
+      <circle cx="16" cy="16.7" r="14.15" fill="#56437a" opacity="0.28"/>
+      <circle class="face-shape" cx="16" cy="16" r="12.7" fill="#d5c8e4"/>
+      <ellipse cx="12.0" cy="10.8" rx="5.0" ry="3.3" fill="#f6f1fb" opacity="0.50"/>
+      <circle cx="10.6" cy="10.1" r="1.15" fill="#f6f1fb" opacity="0.82"/>
+      <g class="cheeks">
+        <ellipse cx="9.2" cy="19.4" rx="2.7" ry="1.85" fill="#c9a0d8" opacity="0.30"/>
+        <ellipse cx="22.8" cy="19.4" rx="2.7" ry="1.85" fill="#c9a0d8" opacity="0.30"/>
+      </g>
+      <circle cx="16" cy="16" r="12.7" fill="none" stroke="#5a4678" stroke-width="1.2"/>
+      <g class="eyes">
+        <path d="M8.05 14.15q2.9 2.55 5.8 0" stroke="#3a2a55" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M18.15 14.15q2.9 2.55 5.8 0" stroke="#3a2a55" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+      <g class="yawn"><ellipse cx="16" cy="21.0" rx="3.55" ry="4.15" fill="#3a2a55"/>
+        <ellipse cx="16" cy="20.0" rx="1.9" ry="1.7" fill="#4a2a36" opacity="0.5"/></g>
+  </g>
+</svg>

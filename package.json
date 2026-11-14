@@ -1,0 +1,62 @@
+{
+  "name": "zhijian",
+  "productName": "之间",
+  "version": "1.6.0",
+  "description": "之间 —— 夜间柔光风的 AI 陪伴聊天桌面软件（DeepSeek）",
+  "author": "刘博宇SolarSystem",
+  "license": "UNLICENSED",
+  "private": true,
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win nsis portable",
+    "dist:dir": "electron-builder --win dir",
+    "test:prompts": "node prompt-tests/run-tests.js",
+    "dist:box": "electron-builder --win zip --x64 -c.win.signAndEditExecutable=false '-c.artifactName=之间-${version}-win-x64-免安装版.${ext}'",
+    "test:unit": "node prompt-tests/unit/run.js",
+    "test:round9": "node prompt-tests/run-round9.js",
+    "test:catchphrase": "node prompt-tests/run-catchphrase.js",
+    "test:round10": "node prompt-tests/run-round10.js"
+  },
+  "build": {
+    "appId": "com.solarsystem.zhijian",
+    "productName": "之间",
+    "copyright": "© 2026 刘博宇SolarSystem",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "src/**/*",
+      "!src/dev-shots.js",
+      "personas/**/*",
+      "assets/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ],
+      "icon": "assets/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "shortcutName": "之间",
+      "artifactName": "之间-${version}-安装版.${ext}"
+    },
+    "portable": {
+      "artifactName": "之间-${version}-便携版.exe"
+    },
+    "afterPack": "build/after-pack.js"
+  },
+  "devDependencies": {
+    "electron": "^33.2.1",
+    "electron-builder": "^25.1.8",
+    "resedit": "^1.7.2"
+  },
+  "allowScripts": {
+    "electron": true
+  }
+}

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" overflow="visible">
+  <title>困倦</title>
+  <circle cx="16" cy="16.7" r="14.15" fill="#3f5e4a" opacity="0.28"/>
+  <circle class="face-shape" cx="16" cy="16" r="12.7" fill="#c8d8c8"/>
+  <ellipse cx="12.0" cy="10.8" rx="5.0" ry="3.3" fill="#f3faf3" opacity="0.40"/>
+  <circle cx="10.6" cy="10.1" r="1.15" fill="#f3faf3" opacity="0.70"/>
+  <g class="cheeks">
+    <ellipse cx="9.2" cy="19.4" rx="2.7" ry="1.85" fill="#e0c0b0" opacity="0.16"/>
+    <ellipse cx="22.8" cy="19.4" rx="2.7" ry="1.85" fill="#e0c0b0" opacity="0.16"/>
+  </g>
+  <circle cx="16" cy="16" r="12.7" fill="none" stroke="#3f5e4a" stroke-width="1.2"/>
+  <g class="eyes">
+    <path d="M8.05 14.15q2.9 2.55 5.8 0" stroke="#2d4a38" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M18.15 14.15q2.9 2.55 5.8 0" stroke="#2d4a38" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <g class="yawn"><ellipse cx="16" cy="21.0" rx="3.55" ry="4.15" fill="#2d4a38"/>
+    <ellipse cx="16" cy="20.0" rx="1.9" ry="1.7" fill="#4a2a36" opacity="0.5"/></g>
+</svg>

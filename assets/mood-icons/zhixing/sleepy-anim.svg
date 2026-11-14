@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" overflow="visible">
+  <title>困倦</title>
+  <style>
+    .eye, .cheeks, .pupil, .star, .steam, .tear, .heart, .yawn, .mouth {
+      transform-box: fill-box; transform-origin: center;
+    }
+    .root { transform-box: fill-box; transform-origin: 16px 22px; }
+
+    .root { animation: nod 4.0s ease-in-out infinite; transform-origin: 16px 26px; }
+    @keyframes nod {
+      0%, 100% { transform: rotate(0deg); }
+      42% { transform: rotate(3.02deg); }
+      70% { transform: rotate(0.60deg); }
+    }
+    .yawn { animation: yawn 4.0s ease-in-out infinite; }
+    @keyframes yawn {
+      0%, 100% { transform: scale(1, 0.9); }
+      45% { transform: scale(1.05, 1.14); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .movable, .movable * { animation: none !important; }
+    }
+  </style>
+  <g class="root movable">
+      <circle cx="16" cy="16.7" r="14.15" fill="#5e5139" opacity="0.28"/>
+      <circle class="face-shape" cx="16" cy="16" r="12.55" fill="#d8ccb4"/>
+      <ellipse cx="12.3" cy="11.1" rx="4.0" ry="2.5" fill="#f6f0e4" opacity="0.28"/>
+      <circle cx="16" cy="16" r="12.55" fill="none" stroke="#5a4e38" stroke-width="1.1"/>
+      <g class="eyes">
+        <path d="M8.55 14.35q2.4 2.0 4.8 0" stroke="#3d3424" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M18.65 14.35q2.4 2.0 4.8 0" stroke="#3d3424" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+      <g class="yawn"><ellipse cx="16" cy="20.85" rx="3.15" ry="3.85" fill="#3d3424"/>
+        <ellipse cx="16" cy="19.85" rx="1.7" ry="1.55" fill="#1c2732" opacity="0.55"/></g>
+  </g>
+</svg>

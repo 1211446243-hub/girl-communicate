@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<title>头像角表情 · 实景示意</title>
+<style>
+  html,body { margin:0; background:#0a0e14; color:#dfe6ec; font-family:"Noto Sans CJK SC","Noto Sans SC",sans-serif; }
+  h1 { font-family:"Noto Serif CJK SC","Noto Serif SC",serif; font-weight:500; font-size:30px; letter-spacing:.14em; text-align:center; margin:22px 0 6px; }
+  .sub { text-align:center; color:#8a9aab; font-size:13px; margin-bottom:18px; }
+  .cols { display:flex; gap:24px; padding:0 24px; justify-content:center; }
+  .col { flex:1; }
+  .stage { position:relative; border-radius:10px; overflow:hidden; width:1180px; height:400px; background:#0c1016; }
+  .stage img { width:1180px; height:auto; display:block; }
+  .badge { position:absolute; width:28px; height:28px; left:211px; top:129px; filter: drop-shadow(0 1px 2px rgba(0,0,0,.4)); }
+  .badge.pop { animation: pop .48s ease; }
+  @keyframes pop { 0% { transform:scale(.86); } 45% { transform:scale(1.22); } 100% { transform:scale(1); } }
+  .zoom-wrap { display:flex; justify-content:center; margin-top:18px; }
+  .zoom { width:160px; height:160px; border-radius:50%; display:grid; place-items:center; position:relative; }
+  .zoom.g { background: radial-gradient(circle at 30% 25%, #c5d3e0, #a7bccf 45%, #3d5266); }
+  .zoom.k { background: radial-gradient(circle at 30% 25%, #f3d0dc, #efb2c6 45%, #6e3e55); }
+  .zoom .ch { font-family:"Noto Serif CJK SC",serif; font-size:62px; color:#0c1016; }
+  .zoom.k .ch { color:#140e12; }
+  .zoom .zb { position:absolute; right:8px; bottom:8px; width:58px; height:58px; filter: drop-shadow(0 2px 4px rgba(0,0,0,.35)); }
+  .cap { text-align:center; margin-top:12px; font-size:14px; letter-spacing:.1em; }
+  .g .cap { color:#a7bccf; }
+  .k .cap { color:#efb2c6; }
+</style>
+</head><body>
+  <h1>实景示意  ·  头像角上的心情小表情</h1>
+  <div class="sub">循环播放　·　先平静，再切换情绪并轻轻放大提示　·　不含真实 Key</div>
+  <div class="cols">
+    <div class="col g">
+      <div class="stage" id="stageG">
+        <img src="file:///workspace/girl%20communicate/screenshots/12-追问原因-高冷-v1.3.png" alt=""/>
+        <div class="badge" id="badgeG"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="28" height="28" fill="none" overflow="visible">
+  <title>平静</title>
+  <style>
+    .eye, .cheeks, .pupil, .star, .steam, .tear, .heart, .yawn, .mouth {
+      transform-box: fill-box; transform-origin: center;
+    }
+    .root { transform-box: fill-box; transform-origin: 16px 22px; }
+
+    .eye { animation: blink 3.58s ease-in-out infinite; }
+    @keyframes blink {
+      0%, 68%, 78%, 100% { transform: scaleY(1); }
+      73% { transform: scaleY(0.08); }
+    }
+    .root { animation: breathe 3.58s ease-in-out infinite; }
+    @keyframes breathe {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.0066); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .movable, .movable * { animation: none !important; }
+    }
+  </style>
+  <g class="root movable">
+      <circle cx="16" cy="16.7" r="14.15" fill="#3d5266" opacity="0.28"/>
+      <circle class="face-shape" cx="16" cy="16" r="12.55" fill="#c8d5e0"/>
+      <ellipse cx="12.3" cy="11.1" rx="4.0" ry="2.5" fill="#eef3f7" opacity="0.30"/>
+      <circle cx="16" cy="16" r="12.55" fill="none" stroke="#3a4e60" stroke-width="1.1"/>
+      <g class="eyes">
+        <g class="eye"><path d="M8.7 14.7h4.8" stroke="#2a3b4b" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/></g>
+        <g class="eye"><path d="M18.5 14.7h4.8" stroke="#2a3b4b" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/></g>
+      </g>
+      <path d="M14.3 20.35h3.4" stroke="#2a3b4b" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg></div>
+      </div>
+      <div class="zoom-wrap"><div class="zoom g" id="zoomG"><span class="ch">清</span><div class="zb" id="zoomGB"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="58" height="58" fill="none" overflow="visible">
+  <title>平静</title>
+  <style>
+    .eye, .cheeks, .pupil, .star, .steam, .tear, .heart, .yawn, .mouth {
+      transform-box: fill-box; transform-origin: center;
+    }
+    .root { transform-box: fill-box; transform-origin: 16px 22px; }
+
+    .eye { animation: blink 3.58s ease-in-out infinite; }
+    @keyframes blink {
+      0%, 68%, 78%, 100% { transform: scaleY(1); }
+      73% { transform: scaleY(0.08); }
+    }
+    .root { animation: breathe 3.58s ease-in-out infinite; }
+    @keyframes breathe {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.0066); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .movable, .movable * { animation: none !important; }
+    }
+  </style>
+  <g class="root movable">
+      <circle cx="16" cy="16.7" r="14.15" fill="#3d5266" opacity="0.28"/>
+      <circle class="face-shape" cx="16" cy="16" r="12.55" fill="#c8d5e0"/>
+      <ellipse cx="12.3" cy="11.1" rx="4.0" ry="2.5" fill="#eef3f7" opacity="0.30"/>
+      <circle cx="16" cy="16" r="12.55" fill="none" stroke="#3a4e60" stroke-width="1.1"/>
+      <g class="eyes">
+        <g class="eye"><path d="M8.7 14.7h4.8" stroke="#2a3b4b" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/></g>
+        <g class="eye"><path d="M18.5 14.7h4.8" stroke="#2a3b4b" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/></g>
+      </g>
+      <path d="M14.3 20.35h3.4" stroke="#2a3b4b" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg></div></div></div>
+      <div class="cap" id="capG">沈清  ·  平静</div>
+    </div>
+    <div class="col k">
+      <div class="stage" id="stageK">
+        <img src="file:///workspace/girl%20communicate/screenshots/10-兴奋-可爱-v1.2.png" alt=""/>
+        <div class="badge" id="badgeK"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="28" height="28" fill="none" overflow="visible">
+  <title>平静</title>
+  <style>
+    .eye, .cheeks, .pupil, .star, .steam, .tear, .heart, .yawn, .mouth {
+      transform-box: fill-box; transform-origin: center;
+    }
+    .root { transform-box: fill-box; transform-origin: 16px 22px; }
+
+    .eye { animation: blink 2.88s ease-in-out infinite; }
+    @keyframes blink {
+      0%, 68%, 78%, 100% { transform: scaleY(1); }
+      73% { transform: scaleY(0.08); }
+    }
+    .root { animation: breathe 2.88s ease-in-out infinite; }
+    @keyframes breathe {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.0138); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .movable, .movable * { animation: none !important; }
+    }
+  </style>
+  <g class="root movable">
+      <circle cx="16" cy="16.7" r="14.15" fill="#6e3e55" opacity="0.28"/>
+      <circle class="face-shape" cx="16" cy="16" r="12.7" fill="#f4d6e0"/>
+      <ellipse cx="12.0" cy="10.8" rx="5.0" ry="3.3" fill="#fff8fb" opacity="0.48"/>
+      <circle cx="10.6" cy="10.1" r="1.15" fill="#fff8fb" opacity="0.80"/>
+      <g class="cheeks">
+        <ellipse cx="9.2" cy="19.4" rx="2.7" ry="1.85" fill="#e889a4" opacity="0.38"/>
+        <ellipse cx="22.8" cy="19.4" rx="2.7" ry="1.85" fill="#e889a4" opacity="0.38"/>
+      </g>
+      <circle cx="16" cy="16" r="12.7" fill="none" stroke="#7a4558" stroke-width="1.2"/>
+      <g class="eyes">
+        <g class="eye"><ellipse cx="11.0" cy="14.2" rx="2.25" ry="2.25" fill="#5a3344"/>
+          <circle cx="11.7" cy="13.5" r="0.85" fill="#fff8fb"/></g>
+        <g class="eye"><ellipse cx="21.0" cy="14.2" rx="2.25" ry="2.25" fill="#5a3344"/>
+          <circle cx="21.7" cy="13.5" r="0.85" fill="#fff8fb"/></g>
+      </g>
+      <path d="M13.5 20.0q2.5 1.85 5.0 0" stroke="#5a3344" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg></div>
+      </div>
+      <div class="zoom-wrap"><div class="zoom k" id="zoomK"><span class="ch">满</span><div class="zb" id="zoomKB"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="58" height="58" fill="none" overflow="visible">
+  <title>平静</title>
+  <style>
+    .eye, .cheeks, .pupil, .star, .steam, .tear, .heart, .yawn, .mouth {
+      transform-box: fill-box; transform-origin: center;
+    }
+    .root { transform-box: fill-box; transform-origin: 16px 22px; }
+
+    .eye { animation: blink 2.88s ease-in-out infinite; }
+    @keyframes blink {
+      0%, 68%, 78%, 100% { transform: scaleY(1); }
+      73% { transform: scaleY(0.08); }
+    }
+    .root { animation: breathe 2.88s ease-in-out infinite; }
+    @keyframes breathe {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.0138); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .movable, .movable * { animation: none !important; }
+    }
+  </style>
+  <g class="root movable">
+      <circle cx="16" cy="16.7" r="14.15" fill="#6e3e55" opacity="0.28"/>
+      <circle class="face-shape" cx="16" cy="16" r="12.7" fill="#f4d6e0"/>
+      <ellipse cx="12.0" cy="10.8" rx="5.0" ry="3.3" fill="#fff8fb" opacity="0.48"/>
+      <circle cx="10.6" cy="10.1" r="1.15" fill="#fff8fb" opacity="0.80"/>
+      <g class="cheeks">
+        <ellipse cx="9.2" cy="19.4" rx="2.7" ry="1.85" fill="#e889a4" opacity="0.38"/>
+        <ellipse cx="22.8" cy="19.4" rx="2.7" ry="1.85" fill="#e889a4" opacity="0.38"/>
+      </g>
+      <circle cx="16" cy="16" r="12.7" fill="none" stroke="#7a4558" stroke-width="1.2"/>
+      <g class="eyes">
+        <g class="eye"><ellipse cx="11.0" cy="14.2" rx="2.25" ry="2.25" fill="#5a3344"/>
+          <circle cx="11.7" cy="13.5" r="0.85" fill="#fff8fb"/></g>
+        <g class="eye"><ellipse cx="21.0" cy="14.2" rx="2.25" ry="2.25" fill="#5a3344"/>
+          <circle cx="21.7" cy="13.5" r="0.85" fill="#fff8fb"/></g>
+      </g>
+      <path d="M13.5 20.0q2.5 1.85 5.0 0" stroke="#5a3344" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg></div></div></div>
+      <div class="cap" id="capK">林小满  ·  平静</div>
+    </div>
+  </div>
+  <script>
+    const gSulky = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="28" height="28" fill="none" overflow="visible">
+  <title>生闷气</title>
+  <style>
+    .eye, .cheeks, .pupil, .star, .steam, .tear, .heart, .yawn, .mouth {
+      transform-box: fill-box; transform-origin: center;
+    }
+    .root { transform-box: fill-box; transform-origin: 16px 22px; }
+
+    .cheeks { animation: puff 2.91s ease-in-out infinite; }
+    @keyframes puff {
+      0%, 100% { transform: scale(1); }
+      45% { transform: scale(1.088); }
+    }
+    .pupil { animation: glance 2.91s ease-in-out infinite; }
+    @keyframes glance {
+      0%, 100% { transform: translateX(0); }
+      30%, 60% { transform: translateX(0.63px); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .movable, .movable * { animation: none !important; }
+    }
+  </style>
+  <g class="root movable">
+      <path d="M16 2.15 C23.5 2.15 29.15 7.5 29.4 14.3 C31.6 16.7 31.85 22.05 28.7 25.2 C25.85 30.45 19.7 31.25 16 31.25 C12.3 31.25 6.15 30.45 3.3 25.2 C0.15 22.05 0.4 16.7 2.6 14.3 C2.85 7.5 8.5 2.15 16 2.15 Z" fill="#3d5266" opacity="0.26"/>
+      <path class="face-shape" d="M16 3.35 C22.7 3.35 27.7 8.15 27.95 14.35 C29.85 16.55 30.05 21.25 27.35 24.05 C24.85 28.85 19.35 29.65 16 29.65 C12.65 29.65 7.15 28.85 4.65 24.05 C1.95 21.25 2.15 16.55 4.05 14.35 C4.3 8.15 9.3 3.35 16 3.35 Z" fill="#c5ced8"/>
+      <ellipse cx="12.2" cy="11.0" rx="3.8" ry="2.3" fill="#eef3f7" opacity="0.30"/>
+      <g class="cheeks">
+        <ellipse cx="8.2" cy="20.2" rx="3.0" ry="2.1" fill="#c4b4bc" opacity="0.45"/>
+        <ellipse cx="23.8" cy="20.2" rx="3.0" ry="2.1" fill="#c4b4bc" opacity="0.45"/>
+      </g>
+      <path d="M16 3.35 C22.7 3.35 27.7 8.15 27.95 14.35 C29.85 16.55 30.05 21.25 27.35 24.05 C24.85 28.85 19.35 29.65 16 29.65 C12.65 29.65 7.15 28.85 4.65 24.05 C1.95 21.25 2.15 16.55 4.05 14.35 C4.3 8.15 9.3 3.35 16 3.35 Z" fill="none" stroke="#3a4e60" stroke-width="1.1"/>
+      <path d="M8.6 12.55h5.0" stroke="#2a3b4b" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M18.4 12.55h5.0" stroke="#2a3b4b" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+      <g class="eyes">
+        <path d="M8.9 14.85h4.5" stroke="#2a3b4b" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle class="pupil" cx="13.15" cy="14.85" r="0.95" fill="#2a3b4b"/>
+        <path d="M18.6 14.85h4.5" stroke="#2a3b4b" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle class="pupil" cx="22.85" cy="14.85" r="0.95" fill="#2a3b4b"/>
+      </g>
+      <path d="M16.7 20.0c0.15 1.7 2.05 1.7 2.2 0" stroke="#2a3b4b" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>`;
+    const gSulkyZ = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="58" height="58" fill="none" overflow="visible">
+  <title>生闷气</title>
+  <style>
+    .eye, .cheeks, .pupil, .star, .steam, .tear, .heart, .yawn, .mouth {
+      transform-box: fill-box; transform-origin: center;
+    }
+    .root { transform-box: fill-box; transform-origin: 16px 22px; }
+
+    .cheeks { animation: puff 2.91s ease-in-out infinite; }
+    @keyframes puff {
+      0%, 100% { transform: scale(1); }
+      45% { transform: scale(1.088); }
+    }
+    .pupil { animation: glance 2.91s ease-in-out infinite; }
+    @keyframes glance {
+      0%, 100% { transform: translateX(0); }
+      30%, 60% { transform: translateX(0.63px); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .movable, .movable * { animation: none !important; }
+    }
+  </style>
+  <g class="root movable">
+      <path d="M16 2.15 C23.5 2.15 29.15 7.5 29.4 14.3 C31.6 16.7 31.85 22.05 28.7 25.2 C25.85 30.45 19.7 31.25 16 31.25 C12.3 31.25 6.15 30.45 3.3 25.2 C0.15 22.05 0.4 16.7 2.6 14.3 C2.85 7.5 8.5 2.15 16 2.15 Z" fill="#3d5266" opacity="0.26"/>
+      <path class="face-shape" d="M16 3.35 C22.7 3.35 27.7 8.15 27.95 14.35 C29.85 16.55 30.05 21.25 27.35 24.05 C24.85 28.85 19.35 29.65 16 29.65 C12.65 29.65 7.15 28.85 4.65 24.05 C1.95 21.25 2.15 16.55 4.05 14.35 C4.3 8.15 9.3 3.35 16 3.35 Z" fill="#c5ced8"/>
+      <ellipse cx="12.2" cy="11.0" rx="3.8" ry="2.3" fill="#eef3f7" opacity="0.30"/>
+      <g class="cheeks">
+        <ellipse cx="8.2" cy="20.2" rx="3.0" ry="2.1" fill="#c4b4bc" opacity="0.45"/>
+        <ellipse cx="23.8" cy="20.2" rx="3.0" ry="2.1" fill="#c4b4bc" opacity="0.45"/>
+      </g>
+      <path d="M16 3.35 C22.7 3.35 27.7 8.15 27.95 14.35 C29.85 16.55 30.05 21.25 27.35 24.05 C24.85 28.85 19.35 29.65 16 29.65 C12.65 29.65 7.15 28.85 4.65 24.05 C1.95 21.25 2.15 16.55 4.05 14.35 C4.3 8.15 9.3 3.35 16 3.35 Z" fill="none" stroke="#3a4e60" stroke-width="1.1"/>
+      <path d="M8.6 12.55h5.0" stroke="#2a3b4b" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M18.4 12.55h5.0" stroke="#2a3b4b" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+      <g class="eyes">
+        <path d="M8.9 14.85h4.5" stroke="#2a3b4b" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle class="pupil" cx="13.15" cy="14.85" r="0.95" fill="#2a3b4b"/>
+        <path d="M18.6 14.85h4.5" stroke="#2a3b4b" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle class="pupil" cx="22.85" cy="14.85" r="0.95" fill="#2a3b4b"/>
+      </g>
+      <path d="M16.7 20.0c0.15 1.7 2.05 1.7 2.2 0" stroke="#2a3b4b" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>`;
+    const gCalm = document.getElementById('badgeG').innerHTML;
+    const gCalmZ = document.getElementById('zoomGB').innerHTML;
+    const kEx = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="28" height="28" fill="none" overflow="visible">
+  <title>兴奋</title>
+  <style>
+    .eye, .cheeks, .pupil, .star, .steam, .tear, .heart, .yawn, .mouth {
+      transform-box: fill-box; transform-origin: center;
+    }
+    .root { transform-box: fill-box; transform-origin: 16px 22px; }
+
+    .root { animation: hop 1.62s ease-in-out infinite; }
+    @keyframes hop {
+      0%, 55%, 100% { transform: translateY(0); }
+      28% { transform: translateY(-3.22px); }
+    }
+    .star { animation: twinkle 1.62s ease-in-out infinite; }
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.4; transform: scale(0.85) rotate(0deg); }
+      40% { opacity: 1; transform: scale(1.2) rotate(18deg); }
+      60% { opacity: 0.55; transform: scale(0.95) rotate(8deg); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .movable, .movable * { animation: none !important; }
+    }
+  </style>
+  <g class="root movable">
+      <circle cx="16" cy="16.7" r="14.15" fill="#6e3e55" opacity="0.28"/>
+      <circle class="face-shape" cx="16" cy="16" r="12.7" fill="#f8dfe8"/>
+      <ellipse cx="12.0" cy="10.8" rx="5.0" ry="3.3" fill="#fff8fb" opacity="0.48"/>
+      <circle cx="10.6" cy="10.1" r="1.15" fill="#fff8fb" opacity="0.80"/>
+      <g class="cheeks">
+        <ellipse cx="9.2" cy="19.4" rx="2.7" ry="1.85" fill="#e889a4" opacity="0.58"/>
+        <ellipse cx="22.8" cy="19.4" rx="2.7" ry="1.85" fill="#e889a4" opacity="0.58"/>
+      </g>
+      <circle cx="16" cy="16" r="12.7" fill="none" stroke="#7a4558" stroke-width="1.2"/>
+      <g class="eyes">
+        <g class="eye"><ellipse cx="11.0" cy="13.95" rx="2.55" ry="2.55" fill="#5a3344"/>
+          <circle cx="11.85" cy="13.05" r="0.85" fill="#fff8fb"/></g>
+        <g class="eye"><ellipse cx="21.0" cy="13.95" rx="2.55" ry="2.55" fill="#5a3344"/>
+          <circle cx="21.85" cy="13.05" r="0.85" fill="#fff8fb"/></g>
+      </g>
+      <path d="M11 13.95l0.45 1.05 1.1.4-1.1.4-.45 1.05-.45-1.05-1.1-.4 1.1-.4z" fill="#fff8fb" opacity="0.9"/>
+      <path d="M21 13.95l0.45 1.05 1.1.4-1.1.4-.45 1.05-.45-1.05-1.1-.4 1.1-.4z" fill="#fff8fb" opacity="0.9"/>
+      <g class="mouth"><ellipse cx="16" cy="21.35" rx="3.05" ry="2.55" fill="#5a3344"/>
+        <ellipse cx="16" cy="20.55" rx="1.55" ry="1.15" fill="#4a2a36" opacity="0.45"/></g>
+      <g class="star"><path d="M25.55 6.7l0.55 1.35 1.4.55-1.4.55-.55 1.35-.55-1.35-1.4-.55 1.4-.55z" fill="#efb2c6"/></g>
+  </g>
+</svg>`;
+    const kExZ = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="58" height="58" fill="none" overflow="visible">
+  <title>兴奋</title>
+  <style>
+    .eye, .cheeks, .pupil, .star, .steam, .tear, .heart, .yawn, .mouth {
+      transform-box: fill-box; transform-origin: center;
+    }
+    .root { transform-box: fill-box; transform-origin: 16px 22px; }
+
+    .root { animation: hop 1.62s ease-in-out infinite; }
+    @keyframes hop {
+      0%, 55%, 100% { transform: translateY(0); }
+      28% { transform: translateY(-3.22px); }
+    }
+    .star { animation: twinkle 1.62s ease-in-out infinite; }
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.4; transform: scale(0.85) rotate(0deg); }
+      40% { opacity: 1; transform: scale(1.2) rotate(18deg); }
+      60% { opacity: 0.55; transform: scale(0.95) rotate(8deg); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .movable, .movable * { animation: none !important; }
+    }
+  </style>
+  <g class="root movable">
+      <circle cx="16" cy="16.7" r="14.15" fill="#6e3e55" opacity="0.28"/>
+      <circle class="face-shape" cx="16" cy="16" r="12.7" fill="#f8dfe8"/>
+      <ellipse cx="12.0" cy="10.8" rx="5.0" ry="3.3" fill="#fff8fb" opacity="0.48"/>
+      <circle cx="10.6" cy="10.1" r="1.15" fill="#fff8fb" opacity="0.80"/>
+      <g class="cheeks">
+        <ellipse cx="9.2" cy="19.4" rx="2.7" ry="1.85" fill="#e889a4" opacity="0.58"/>
+        <ellipse cx="22.8" cy="19.4" rx="2.7" ry="1.85" fill="#e889a4" opacity="0.58"/>
+      </g>
+      <circle cx="16" cy="16" r="12.7" fill="none" stroke="#7a4558" stroke-width="1.2"/>
+      <g class="eyes">
+        <g class="eye"><ellipse cx="11.0" cy="13.95" rx="2.55" ry="2.55" fill="#5a3344"/>
+          <circle cx="11.85" cy="13.05" r="0.85" fill="#fff8fb"/></g>
+        <g class="eye"><ellipse cx="21.0" cy="13.95" rx="2.55" ry="2.55" fill="#5a3344"/>
+          <circle cx="21.85" cy="13.05" r="0.85" fill="#fff8fb"/></g>
+      </g>
+      <path d="M11 13.95l0.45 1.05 1.1.4-1.1.4-.45 1.05-.45-1.05-1.1-.4 1.1-.4z" fill="#fff8fb" opacity="0.9"/>
+      <path d="M21 13.95l0.45 1.05 1.1.4-1.1.4-.45 1.05-.45-1.05-1.1-.4 1.1-.4z" fill="#fff8fb" opacity="0.9"/>
+      <g class="mouth"><ellipse cx="16" cy="21.35" rx="3.05" ry="2.55" fill="#5a3344"/>
+        <ellipse cx="16" cy="20.55" rx="1.55" ry="1.15" fill="#4a2a36" opacity="0.45"/></g>
+      <g class="star"><path d="M25.55 6.7l0.55 1.35 1.4.55-1.4.55-.55 1.35-.55-1.35-1.4-.55 1.4-.55z" fill="#efb2c6"/></g>
+  </g>
+</svg>`;
+    const kCalm = document.getElementById('badgeK').innerHTML;
+    const kCalmZ = document.getElementById('zoomKB').innerHTML;
+    function pop(el) { el.classList.remove('pop'); void el.offsetWidth; el.classList.add('pop'); }
+    function setMood(which, on) {
+      if (which === 'g') {
+        document.getElementById('badgeG').innerHTML = on ? gSulky : gCalm;
+        document.getElementById('zoomGB').innerHTML = on ? gSulkyZ : gCalmZ;
+        document.getElementById('capG').textContent = on ? '沈清  ·  生闷气' : '沈清  ·  平静';
+        pop(document.getElementById('badgeG'));
+        pop(document.getElementById('zoomGB'));
+      } else {
+        document.getElementById('badgeK').innerHTML = on ? kEx : kCalm;
+        document.getElementById('zoomKB').innerHTML = on ? kExZ : kCalmZ;
+        document.getElementById('capK').textContent = on ? '林小满  ·  兴奋' : '林小满  ·  平静';
+        pop(document.getElementById('badgeK'));
+        pop(document.getElementById('zoomKB'));
+      }
+    }
+    setTimeout(() => { setMood('g', true); setMood('k', true); }, 1800);
+  </script>
+</body></html>
